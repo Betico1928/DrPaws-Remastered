@@ -49,8 +49,9 @@
       <label for="password">Contraseña:</label>
       <input type="password" id="password" th:field="*{password}" required>
     </div>
-    <button type="submit">Ingresar</button>
   </form>
+
+  <button [routerLink]="['/login-administrativo/dashboard-veterinarios']">Ingresar</button>
 
 </div>
 
