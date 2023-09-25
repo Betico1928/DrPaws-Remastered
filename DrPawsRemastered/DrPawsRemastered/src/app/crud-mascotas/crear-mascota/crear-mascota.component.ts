@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {MascotaServiceService} from "../../service/mascota/mascota-service.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-crear-mascota',
@@ -10,9 +12,10 @@ export class CrearMascotaComponent
 {
   mascotaForm: FormGroup;
 
-  constructor(private fb: FormBuilder)
+  constructor(private fb: FormBuilder, private MascotaService: MascotaServiceService, private router: Router)
   {
-    this.mascotaForm = this.fb.group({
+    this.mascotaForm = this.fb.group(
+      {
       nombre: ['', Validators.required],
       raza: ['', Validators.required],
       edad: ['', Validators.required],
@@ -21,10 +24,16 @@ export class CrearMascotaComponent
     });
   }
 
-  onSubmit() {
-    if (this.mascotaForm.valid) {
+  onSubmit()
+  {
+    if (this.mascotaForm.valid)
+    {
       // Process your form here
       console.log(this.mascotaForm.value);
+
+      this.MascotaService.add(this.mascotaForm.value);
+
+      this.router.navigate(['/login-administrativo/dashboard-veterinarios']);
     }
   }
 }
