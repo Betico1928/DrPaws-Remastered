@@ -8,6 +8,7 @@ import { LoginAdministrativoComponent } from './login-administrativo/login-admin
 import { DashboardVeterinarioComponent } from './dashboard-veterinario/dashboard-veterinario.component';
 import { CrearMascotaComponent } from './crud-mascotas/crear-mascota/crear-mascota.component';
 import { ModificarMascotaComponent } from './crud-mascotas/modificar-mascota/modificar-mascota.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ModificarMascotaComponent } from './crud-mascotas/modificar-mascota/mod
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
