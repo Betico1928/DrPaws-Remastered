@@ -59,11 +59,18 @@ export class MascotaServiceService
   update(mascota: Mascota): void
   {
     const index = this.listaDeMascotas.findIndex(m => m.id === mascota.id);
+
     if (index !== -1)
     {
+      console.log('Updating mascota:', this.listaDeMascotas[index]);
       this.listaDeMascotas[index] = mascota;
     }
+    else
+    {
+      console.log('Mascota not found for ID:', mascota.id);
+    }
   }
+
 
 
   // Delete
