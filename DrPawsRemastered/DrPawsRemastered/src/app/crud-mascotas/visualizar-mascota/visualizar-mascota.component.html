@@ -42,30 +42,26 @@
     <h2>Mi Mascota</h2>
     <!-- Parte izquierda del div que muestra la imagen de la mascota -->
     <div class="mascota-image">
-
-
-      <!-- <img src="/Imagenes/Perros/LA FOTO" alt="Imagen de la mascota">  TODO PONER EL VERDADERO PATH-->
-
-
-      <img th:src="@{'/Imagenes/Perros/ImagenMascota.jpg'}" alt="Imagen de la mascota">
+      <!-- Note: Modify the src path if needed -->
+      <img alt="Imagen de la mascota" src="assets/crud-mascotas-assets/visualizar-mascota-assets/images/imagen-mascota.png">
     </div>
     <!-- Parte derecha del div que muestra la información de la mascota en forma de tabla -->
     <table class="mascota-info">
       <tr>
         <th>Nombre</th>
-        <td th:text="${mascota.nombre}"></td>
+        <td>{{ searchedMascota?.nombre }}</td>
       </tr>
       <tr>
         <th>Raza</th>
-        <td th:text="${mascota.raza}"></td>
+        <td>{{ searchedMascota?.raza }}</td>
       </tr>
       <tr>
         <th>Edad</th>
-        <td th:text="${mascota.edad}"></td>
+        <td>{{ searchedMascota?.edad }}</td>
       </tr>
       <tr>
         <th>Peso</th>
-        <td th:text="${mascota.peso}"></td>
+        <td>{{ searchedMascota?.peso }}</td>
       </tr>
     </table>
   </div>
@@ -75,9 +71,11 @@
 <section class="enfermedades-section">
   <h3>Enfermedades</h3>
   <ul class="mascota-enfermedades">
-    <li th:text="${mascota.enfermedad}"></li>
+    <li>{{ searchedMascota?.enfermedad }}</li>
   </ul>
 </section>
+
+
 
 
 
