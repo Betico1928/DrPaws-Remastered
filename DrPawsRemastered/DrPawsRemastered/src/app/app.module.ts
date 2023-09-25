@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginAdministrativoComponent } from './login-administrativo/login-administrativo.component';
+import { DashboardVeterinarioComponent } from './dashboard-veterinario/dashboard-veterinario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    LoginAdministrativoComponent
+    LoginAdministrativoComponent,
+    DashboardVeterinarioComponent
   ],
   imports: [
     BrowserModule,
