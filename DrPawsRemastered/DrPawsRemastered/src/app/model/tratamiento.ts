@@ -4,10 +4,10 @@ import {Veterinario} from "./veterinario";
 
 export interface Tratamiento
 {
-  id: number;  // '?' denotes that the property is optional
-  veterinario?: Veterinario;  // Assuming you have a 'Veterinario' interface or model in TypeScript
-  mascota?: Mascota;  // Assuming you have a 'Mascota' interface or model in TypeScript
-  medicamentos?: Medicamento[];  // Assuming you have a 'Medicamento' interface in TypeScript
+  id: number;
+  veterinario?: Veterinario;
+  mascota?: Mascota;
+  medicamentos?: Medicamento[];
   nombre: string;
   fecha: string;
 }
