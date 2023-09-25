@@ -16,7 +16,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
   imports: [
     BrowserModule
   ],
-  providers: [], 
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
