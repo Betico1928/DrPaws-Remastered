@@ -7,6 +7,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginAdministrativoComponent } from './login-administrativo/login-administrativo.component';
 import { DashboardVeterinarioComponent } from './dashboard-veterinario/dashboard-veterinario.component';
 import { CrearMascotaComponent } from './crud-mascotas/crear-mascota/crear-mascota.component';
+import { ModificarMascotaComponent } from './crud-mascotas/modificar-mascota/modificar-mascota.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CrearMascotaComponent } from './crud-mascotas/crear-mascota/crear-masco
     LandingPageComponent,
     LoginAdministrativoComponent,
     DashboardVeterinarioComponent,
-    CrearMascotaComponent
+    CrearMascotaComponent,
+    ModificarMascotaComponent
   ],
   imports: [
     BrowserModule,

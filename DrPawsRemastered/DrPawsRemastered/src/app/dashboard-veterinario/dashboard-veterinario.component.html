@@ -81,7 +81,7 @@
           </a>
 
           <!-- Botón para modificar la mascota -->
-          <a class="btn btn-info" th:href="@{/mascota/update/{id}(id=${mascota.id})}">
+          <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-veterinarios/modificar-mascota']">
             <i class="fas fa-pencil-alt"></i>
           </a>
 
