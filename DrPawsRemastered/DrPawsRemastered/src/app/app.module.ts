@@ -10,6 +10,7 @@ import { CrearMascotaComponent } from './crud-mascotas/crear-mascota/crear-masco
 import { ModificarMascotaComponent } from './crud-mascotas/modificar-mascota/modificar-mascota.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { VisualizarMascotaComponent } from './crud-mascotas/visualizar-mascota/visualizar-mascota.component';
+import { PorqueNosotrosComponent } from './porque-nosotros/porque-nosotros.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { VisualizarMascotaComponent } from './crud-mascotas/visualizar-mascota/v
     DashboardVeterinarioComponent,
     CrearMascotaComponent,
     ModificarMascotaComponent,
-    VisualizarMascotaComponent
+    VisualizarMascotaComponent,
+    PorqueNosotrosComponent
   ],
   imports: [
     BrowserModule,

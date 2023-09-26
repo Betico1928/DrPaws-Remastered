@@ -74,7 +74,7 @@ export class MascotaServiceService
 
 
   // Delete
-  public deleteById(id: number): void
+  public deleteById(id: number | undefined): void
   {
     const index = this.listaDeMascotas.findIndex(mascota => mascota.id === id);
     if (index !== -1)

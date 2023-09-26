@@ -26,11 +26,11 @@
 
 <!-- Header -->
 <header>
-  <a href="/" class="logo">DR.PAWS</a>
+  <a [routerLink]="['/home']"  class="logo">DR.PAWS</a>
   <ul>
-    <li><a href="/" class="active">Home</a></li>
-    <li><a href="/porqueNosotros">About</a></li>
-    <li><a href="/loginVeterinario" class="active">Login Administrativo</a></li>
+    <li><a [routerLink]="['/home']">Home</a></li>
+    <li><a [routerLink]="['/porque-nosotros']">About</a></li>
+    <li><a [routerLink]="['/login-administrativo']" class="active">Login Administrativo</a></li>
     <li><a href="/loginUsuario">Login Usuario</a></li>
     <li><a href="/contacto">Contact</a></li>
   </ul>

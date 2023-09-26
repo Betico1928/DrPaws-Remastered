@@ -19,7 +19,7 @@ export class DashboardVeterinarioComponent
   }
 
   // Delete
-  deleteMascota(id: number): void
+    deleteMascota(id: number | undefined): void
   {
     this.MascotaService.deleteById(id);
   }

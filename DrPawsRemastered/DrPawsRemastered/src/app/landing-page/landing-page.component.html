@@ -21,10 +21,10 @@
 <body>
 
 <header>
-  <a href="#" class="logo">DR.PAWS</a>
+  <a [routerLink]="['/home']"  class="logo">DR.PAWS</a>
   <ul>
-    <li><a href="#" class="active">Home</a></li>
-    <li><a href="/porqueNosotros">About</a></li>
+    <li><a [routerLink]="['/home']" class="active">Home</a></li>
+    <li><a [routerLink]="['/porque-nosotros']">About</a></li>
     <li><a [routerLink]="['/login-administrativo']">Login Administrativo</a></li>
     <li><a href="/loginUsuario">Login Usuario</a></li>
     <li><a href="/contacto">Contact</a></li>
