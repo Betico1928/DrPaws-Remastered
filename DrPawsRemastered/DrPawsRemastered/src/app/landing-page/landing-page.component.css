@@ -143,6 +143,7 @@ section img#stars {
   color: #cb3963;
   font-size: 1.5em;
   transform: translateY(100px);
+  z-index: 50;
 }
 
 /* Fin de la sección 1*/
