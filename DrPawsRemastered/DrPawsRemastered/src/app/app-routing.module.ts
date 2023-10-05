@@ -8,6 +8,7 @@ import {ModificarMascotaComponent} from "./crud-mascotas/modificar-mascota/modif
 import {VisualizarMascotaComponent} from "./crud-mascotas/visualizar-mascota/visualizar-mascota.component";
 import {PorqueNosotrosComponent} from "./porque-nosotros/porque-nosotros.component";
 import {ContactoComponent} from "./contacto/contacto.component";
+import {ErrorPageComponent} from "./error-page/error-page.component";
 
 const routes: Routes = [
   // Default route
@@ -25,6 +26,9 @@ const routes: Routes = [
   {path: 'login-administrativo/dashboard-veterinarios/crear-mascota', component: CrearMascotaComponent},
   {path: 'login-administrativo/dashboard-veterinarios/visualizar-mascota/:id', component: VisualizarMascotaComponent},
   {path: 'login-administrativo/dashboard-veterinarios/modificar-mascota/:id', component: ModificarMascotaComponent},
+
+  { path: '404', component: ErrorPageComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({

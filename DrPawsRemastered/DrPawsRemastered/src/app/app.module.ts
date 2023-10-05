@@ -12,6 +12,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { VisualizarMascotaComponent } from './crud-mascotas/visualizar-mascota/visualizar-mascota.component';
 import { PorqueNosotrosComponent } from './porque-nosotros/porque-nosotros.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContactoComponent } from './contacto/contacto.component';
     ModificarMascotaComponent,
     VisualizarMascotaComponent,
     PorqueNosotrosComponent,
-    ContactoComponent
+    ContactoComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
