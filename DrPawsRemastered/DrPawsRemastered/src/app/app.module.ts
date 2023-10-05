@@ -11,6 +11,7 @@ import { ModificarMascotaComponent } from './crud-mascotas/modificar-mascota/mod
 import {ReactiveFormsModule} from "@angular/forms";
 import { VisualizarMascotaComponent } from './crud-mascotas/visualizar-mascota/visualizar-mascota.component';
 import { PorqueNosotrosComponent } from './porque-nosotros/porque-nosotros.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PorqueNosotrosComponent } from './porque-nosotros/porque-nosotros.compo
     CrearMascotaComponent,
     ModificarMascotaComponent,
     VisualizarMascotaComponent,
-    PorqueNosotrosComponent
+    PorqueNosotrosComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,

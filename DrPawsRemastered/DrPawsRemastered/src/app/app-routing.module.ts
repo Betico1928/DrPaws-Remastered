@@ -7,6 +7,7 @@ import {CrearMascotaComponent} from "./crud-mascotas/crear-mascota/crear-mascota
 import {ModificarMascotaComponent} from "./crud-mascotas/modificar-mascota/modificar-mascota.component";
 import {VisualizarMascotaComponent} from "./crud-mascotas/visualizar-mascota/visualizar-mascota.component";
 import {PorqueNosotrosComponent} from "./porque-nosotros/porque-nosotros.component";
+import {ContactoComponent} from "./contacto/contacto.component";
 
 const routes: Routes = [
   // Default route
@@ -15,6 +16,7 @@ const routes: Routes = [
   // Eagerly loaded routes
   {path: 'home', component: LandingPageComponent},
   {path: 'porque-nosotros', component: PorqueNosotrosComponent},
+  {path: 'contacto', component: ContactoComponent},
 
   {path: 'login-administrativo', component: LoginAdministrativoComponent},
   {path: 'login-administrativo/dashboard-veterinarios', component: DashboardVeterinarioComponent},
