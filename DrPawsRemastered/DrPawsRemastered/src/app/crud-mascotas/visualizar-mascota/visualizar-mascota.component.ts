@@ -12,14 +12,15 @@ export class VisualizarMascotaComponent
 {
   constructor(private MascotaService: MascotaServiceService, private route:ActivatedRoute) { }
 
-  searchedMascota!: Mascota | undefined;
+  searchedMascota!: Mascota;
 
   ngOnInit() : void
   {
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get("id"));
-
-    this.searchedMascota = this.MascotaService.searchById(id);
+      this.MascotaService.searchById(id).subscribe(
+        data => this.searchedMascota = data
+      );
     });
   }
 }

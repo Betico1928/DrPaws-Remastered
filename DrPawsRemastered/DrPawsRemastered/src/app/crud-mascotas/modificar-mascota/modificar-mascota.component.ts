@@ -13,7 +13,7 @@ import {Mascota} from "../../model/mascota";
 export class ModificarMascotaComponent
 {
   @Input()
-  formMascota!: Mascota | undefined;
+  formMascota!: Mascota;
 
 
   mascotaForm: FormGroup;
@@ -32,18 +32,28 @@ export class ModificarMascotaComponent
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get("id"));
-      this.formMascota = this.MascotaService.searchById(id);
+      this.MascotaService.searchById(id).subscribe(
+        data => {
+          // Move the code that relies on 'mascota' inside this callback
+          const mascota = data;
+          console.log(mascota);
 
-      this.mascotaForm.setValue({
-        id: this.formMascota?.id,  // <-- Include the ID here
-        nombre: this.formMascota?.nombre,
-        raza: this.formMascota?.raza,
-        edad: this.formMascota?.edad,
-        peso: this.formMascota?.peso,
-        enfermedad: this.formMascota?.enfermedad
-      });
+          console.log("Llego al mensaje");
+          console.log(this.formMascota);
+
+          this.mascotaForm.setValue({
+            id: mascota.id, // Use 'mascota' data here
+            nombre: mascota.nombre,
+            raza: mascota.raza,
+            edad: mascota.edad,
+            peso: mascota.peso,
+            enfermedad: mascota.enfermedad
+          });
+        }
+      );
     });
   }
+
 
 
 
@@ -53,8 +63,12 @@ export class ModificarMascotaComponent
     {
       // Process your form here
       console.log('Form values:', this.mascotaForm.value);
+      console.log('ID de la mascota', this.mascotaForm.get("id")!.value);
 
-      this.MascotaService.update(this.mascotaForm.value)
+      let mascota : Mascota = this.mascotaForm.value;
+      this.MascotaService.update(mascota);
+
+      console.log("Actualizar los datos");
 
       this.router.navigate(['/login-administrativo/dashboard-veterinarios']);
     }

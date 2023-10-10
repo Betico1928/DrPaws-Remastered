@@ -15,12 +15,20 @@ export class DashboardVeterinarioComponent
 
   ngOnInit(): void
   {
-    this.listaDeMascotas = this.MascotaService.searchAll();
+    this.MascotaService.searchAll().subscribe(
+      data => this.listaDeMascotas = data
+    );
   }
 
+
+
   // Delete
-    deleteMascota(id: number | undefined): void
+    deleteMascota(id: number): void
   {
+    const mascota: Mascota = this.listaDeMascotas.find(
+      (mascota)=>mascota.id===id)!;
+    var index = this.listaDeMascotas.indexOf(mascota);
+    this.listaDeMascotas.splice(index,1);
     this.MascotaService.deleteById(id);
   }
 }
