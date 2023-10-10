@@ -30,5 +30,6 @@ export class DashboardVeterinarioComponent
     var index = this.listaDeMascotas.indexOf(mascota);
     this.listaDeMascotas.splice(index,1);
     this.MascotaService.deleteById(id);
+
   }
 }

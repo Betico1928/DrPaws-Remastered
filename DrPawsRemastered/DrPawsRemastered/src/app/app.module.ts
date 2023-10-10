@@ -14,6 +14,7 @@ import { PorqueNosotrosComponent } from './porque-nosotros/porque-nosotros.compo
 import { ContactoComponent } from './contacto/contacto.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DashboardUsuarioComponent } from './dashboard-usuario/dashboard-usuario.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     PorqueNosotrosComponent,
     ContactoComponent,
     ErrorPageComponent,
+    DashboardUsuarioComponent,
 
   ],
   imports: [
