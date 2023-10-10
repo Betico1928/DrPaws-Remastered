@@ -13,6 +13,8 @@ import { VisualizarMascotaComponent } from './crud-mascotas/visualizar-mascota/v
 import { PorqueNosotrosComponent } from './porque-nosotros/porque-nosotros.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DashboardUsuarioComponent } from './dashboard-usuario/dashboard-usuario.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,15 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     VisualizarMascotaComponent,
     PorqueNosotrosComponent,
     ContactoComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    DashboardUsuarioComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

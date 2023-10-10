@@ -3,7 +3,7 @@ import {Usuario} from "./usuario";
 
 export interface Mascota
 {
-  id?: number;
+  id: number;
   nombre: string;
   raza: string;
   edad: number;
