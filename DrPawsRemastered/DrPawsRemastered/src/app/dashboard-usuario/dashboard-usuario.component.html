@@ -51,17 +51,17 @@
         <div class="user-details">
             <div class="detail">
                 <span>Nombre</span>
-                <h2>{{usuario.nombre}}</h2>
+                <h2>{{usuario?.nombre}}</h2>
             </div>
 
             <div class="detail">
                 <span>Correo Electrónico</span>
-                <h2>{{usuario.correo}}</h2>
+                <h2>{{usuario?.correo}}</h2>
             </div>
 
             <div class="detail">
                 <span>Teléfono</span>
-                <h2 >{{usuario.celular}}</h2>
+                <h2 >{{usuario?.celular}}</h2>
             </div>
         </div>
     </div>
@@ -79,14 +79,14 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let mascota of usuario.mascotas">
-              <td>{{mascota.nombre}}</td>
-              <td>{{mascota.raza}}</td>
-              <td>{{mascota.edad}}</td>
-              <td>{{mascota.peso}}</td>
+          <tr *ngFor="let mascota of usuario!.mascotas">
+              <td>{{mascota!.nombre}}</td>
+              <td>{{mascota!.raza}}</td>
+              <td>{{mascota!.edad}}</td>
+              <td>{{mascota!.peso}}</td>
               <!-- Columna para el botón -->
               <td>
-                  <a [routerLink]="['visualizar-mascota/'+mascota.id]" class="view-pet-btn">Ver Mascota</a>
+                  <a [routerLink]="['visualizar-mascota/'+mascota!.id]" class="view-pet-btn">Ver Mascota</a>
               </td>
           </tr>
           </tbody>

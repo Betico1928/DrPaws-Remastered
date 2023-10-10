@@ -20,7 +20,10 @@ const routes: Routes = [
   {path: 'porque-nosotros', component: PorqueNosotrosComponent},
   {path: 'contacto', component: ContactoComponent},
 
+  // Paths para iniciar sesión como veterinario o usuario
   {path: 'login-administrativo', component: LoginAdministrativoComponent},
+  { path: 'loginUsuario', component: LoginAdministrativoComponent },
+
   {path: 'login-administrativo/dashboard-veterinarios', component: DashboardVeterinarioComponent},
 
   // CRUD Mascotas:
