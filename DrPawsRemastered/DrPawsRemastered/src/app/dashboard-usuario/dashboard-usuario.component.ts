@@ -15,7 +15,6 @@ export class DashboardUsuarioComponent {
   constructor(
     private usuarioService: UsuarioService,
     private route: ActivatedRoute,
-    private router: Router,
     ){
 
   }
