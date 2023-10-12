@@ -7,9 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AutenticacionService {
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   // Autenticar Veterinario
   autenticarVet(credenciales: any): Observable<any> {

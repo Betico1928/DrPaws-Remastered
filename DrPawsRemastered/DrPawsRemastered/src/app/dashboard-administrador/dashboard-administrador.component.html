@@ -1,0 +1,20 @@
+<h1>Dashboard del Administrador</h1>
+
+<!-- Verifica si la lista de veterinarios tiene datos -->
+<div *ngIf="veterinarios.length > 0; else noData">
+  <h2>Listado de Veterinarios</h2>
+  <ul>
+    <!-- Itera sobre la lista de veterinarios y muestra sus datos -->
+    <li *ngFor="let vet of veterinarios">
+      <!-- Muestra la información que desees de cada veterinario -->
+      {{ vet.nombre }} - {{ vet.especialidad }}
+      <!-- Ajusta los atributos según tu modelo de datos -->
+    </li>
+  </ul>
+</div>
+
+<!-- Template para mostrar en caso de que no haya datos disponibles -->
+<ng-template #noData>
+  <h2>No hay datos disponibles</h2>
+</ng-template>
+

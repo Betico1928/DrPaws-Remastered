@@ -9,9 +9,7 @@ import { Usuario } from 'src/app/model/usuario';
 })
 export class UsuarioService {
 
-  constructor(
-    private http: HttpClient
-    ) { }
+  constructor(private http: HttpClient) { }
 
     // CRUD
 

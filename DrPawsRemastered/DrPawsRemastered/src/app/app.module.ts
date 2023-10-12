@@ -15,6 +15,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DashboardUsuarioComponent } from './dashboard-usuario/dashboard-usuario.component';
+import { DashboardAdministradorComponent } from './dashboard-administrador/dashboard-administrador.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DashboardUsuarioComponent } from './dashboard-usuario/dashboard-usuario
     ContactoComponent,
     ErrorPageComponent,
     DashboardUsuarioComponent,
+    DashboardAdministradorComponent,
 
   ],
   imports: [
