@@ -39,20 +39,17 @@
 <!-- Cuerpo de la página (formulario de login) -->
 <div class="login-container">
   <h2>Iniciar sesión</h2>
-  <form th:action="@{/loginVeterinario}" th:object="${loginForm}" method="post">
+  <form (ngSubmit)="login()">
     <div class="form-group">
       <label for="email">Correo electrónico:</label>
-      <!-- El uso de th:field vincula el campo del formulario con la propiedad correspondiente del objeto de respaldo (loginForm) -->
-      <input type="email" id="email" th:field="*{email}" required>
+      <input type="email" id="email" [(ngModel)]="credenciales.correo" name="username" required>
     </div>
     <div class="form-group">
       <label for="password">Contraseña:</label>
-      <input type="password" id="password" th:field="*{password}" required>
+      <input type="password" id="password" [(ngModel)]="credenciales.contrasenna" name="password" required>
     </div>
+    <button type="submit">Ingresar</button>
   </form>
-
-  <button [routerLink]="['/login-administrativo/dashboard-veterinarios']">Ingresar</button>
-
 </div>
 
 <!-- Footer -->

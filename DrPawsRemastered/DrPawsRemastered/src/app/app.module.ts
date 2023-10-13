@@ -8,11 +8,12 @@ import { LoginAdministrativoComponent } from './logins/login-administrativo/logi
 import { DashboardVeterinarioComponent} from "./dashboards/dashboard-veterinario/dashboard-veterinario.component";
 import { CrearMascotaComponent } from './cruds/crud-mascotas/crear-mascota/crear-mascota.component';
 import { ModificarMascotaComponent } from './cruds/crud-mascotas/modificar-mascota/modificar-mascota.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { VisualizarMascotaComponent } from './cruds/crud-mascotas/visualizar-mascota/visualizar-mascota.component';
 import { PorqueNosotrosComponent } from './paginas-adicionales/porque-nosotros/porque-nosotros.component';
 import { ContactoComponent } from './paginas-adicionales/contacto/contacto.component';
 import { ErrorPageComponent } from './paginas-adicionales/error-page/error-page.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { ErrorPageComponent } from './paginas-adicionales/error-page/error-page.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
