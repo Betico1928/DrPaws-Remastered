@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MascotaServiceService} from "../../../service/mascota/mascota-service.service";
+import {MascotaService} from "../../../service/mascota/mascota-service.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 })
 export class CrearMascotaComponent
 {
+  /*
   mascotaForm: FormGroup;
 
   constructor(private fb: FormBuilder, private MascotaService: MascotaServiceService, private router: Router)
@@ -36,4 +37,6 @@ export class CrearMascotaComponent
       this.router.navigate(['/login-administrativo/dashboard-veterinarios']);
     }
   }
+
+   */
 }

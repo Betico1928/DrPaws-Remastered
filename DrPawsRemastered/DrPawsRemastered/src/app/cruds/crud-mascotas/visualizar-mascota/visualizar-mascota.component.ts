@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {MascotaServiceService} from "../../../service/mascota/mascota-service.service";
+import {MascotaService} from "../../../service/mascota/mascota-service.service";
 import {Mascota} from "../../../model/mascota";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class VisualizarMascotaComponent
 {
+  /*
   constructor(private MascotaService: MascotaServiceService, private route:ActivatedRoute) { }
 
   searchedMascota!: Mascota | undefined;
@@ -22,5 +23,6 @@ export class VisualizarMascotaComponent
     this.searchedMascota = this.MascotaService.searchById(id);
     });
   }
+  */
 }
 

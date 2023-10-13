@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {MascotaServiceService} from "../../service/mascota/mascota-service.service";
+import {Component, OnInit} from '@angular/core';
+import {MascotaService} from "../../service/mascota/mascota-service.service";
 import {Mascota} from "../../model/mascota";
 
 @Component({
@@ -7,20 +7,21 @@ import {Mascota} from "../../model/mascota";
   templateUrl: './dashboard-veterinario.component.html',
   styleUrls: ['./dashboard-veterinario.component.css']
 })
-export class DashboardVeterinarioComponent
+export class DashboardVeterinarioComponent implements OnInit
 {
-  constructor(private MascotaService: MascotaServiceService) { }
+  listaDeMascotas: Mascota[] = [];
 
-  listaDeMascotas! : Mascota[]
+  constructor(private mascotaService: MascotaService) { }
 
-  ngOnInit(): void
-  {
-    this.listaDeMascotas = this.MascotaService.searchAll();
+  ngOnInit(): void {
+    this.getMascotas();
   }
 
-  // Delete
-    deleteMascota(id: number | undefined): void
-  {
-    this.MascotaService.deleteById(id);
+  getMascotas(): void {
+    this.mascotaService.getMascotas().subscribe(mascotas => this.listaDeMascotas = mascotas);
+  }
+
+  deleteMascota(id: number): void {
+    // Implementar la lógica para eliminar una mascota
   }
 }
