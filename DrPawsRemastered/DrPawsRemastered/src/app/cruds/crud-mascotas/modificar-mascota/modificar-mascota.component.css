@@ -56,7 +56,7 @@ header ul li a {
 
 /* Estilos Generales */
 body {
-  background-image: url('src/assets/crud-mascotas-assets/modificar-mascota-assets/images/background.jpg'), linear-gradient(to bottom, rgb(118, 248, 241), #d1cdd7); /* Añadido el gradiente después de la imagen */
+  background-image: url('/assets/crud-mascotas-assets/modificar-mascota-assets/images/background.jpg'), linear-gradient(to bottom, rgb(118, 248, 241), #d1cdd7); /* Añadido el gradiente después de la imagen */
   margin: 0;
   padding: 0;
   color: #333;

@@ -63,7 +63,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background-image: url('src/assets/crud-mascotas-assets/visualizar-mascota-assets/images/background.jpg'), linear-gradient(to bottom,rgb(118, 248, 241), #d1cdd7);
+  background-image: url('/assets/crud-mascotas-assets/visualizar-mascota-assets/images/background.jpg'), linear-gradient(to bottom,rgb(118, 248, 241), #d1cdd7);
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
   background-position: center center, center bottom;

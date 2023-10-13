@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {MascotaServiceService} from "../service/mascota/mascota-service.service";
-import {Mascota} from "../model/mascota";
+import {MascotaServiceService} from "../../service/mascota/mascota-service.service";
+import {Mascota} from "../../model/mascota";
 
 @Component({
   selector: 'app-dashboard-veterinario',

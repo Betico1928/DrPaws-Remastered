@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MascotaServiceService} from "../../service/mascota/mascota-service.service";
+import {MascotaServiceService} from "../../../service/mascota/mascota-service.service";
 import {Router} from "@angular/router";
 
 @Component({

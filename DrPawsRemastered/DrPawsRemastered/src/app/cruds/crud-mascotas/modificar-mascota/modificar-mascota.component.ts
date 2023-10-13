@@ -1,8 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MascotaServiceService} from "../../service/mascota/mascota-service.service";
+import {MascotaServiceService} from "../../../service/mascota/mascota-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Mascota} from "../../model/mascota";
+import {Mascota} from "../../../model/mascota";
 
 @Component({
   selector: 'app-modificar-mascota',

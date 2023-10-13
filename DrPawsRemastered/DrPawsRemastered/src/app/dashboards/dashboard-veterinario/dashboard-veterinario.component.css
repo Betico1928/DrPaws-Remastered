@@ -207,7 +207,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background-image: url('src/assets/dashboard-veterinario/images/background.png'), linear-gradient(to bottom,rgb(118, 248, 241), #d1cdd7); /* Añadido el gradiente después de la imagen */
+  background-image: url('/assets/dashboard-veterinario/images/background.png'), linear-gradient(to bottom,rgb(118, 248, 241), #d1cdd7); /* Añadido el gradiente después de la imagen */
   background-size: cover, cover; /* La primera 'cover' corresponde a la imagen, la segunda al gradiente */
   background-repeat: no-repeat, no-repeat; /* La primera 'no-repeat' corresponde a la imagen, la segunda al gradiente */
   background-position: center center, center bottom; /* Posicionamos la imagen al centro y el gradiente abajo */
