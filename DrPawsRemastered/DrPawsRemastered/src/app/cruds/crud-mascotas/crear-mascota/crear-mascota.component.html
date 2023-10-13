@@ -35,81 +35,76 @@
 </header>
 <!-- Fin del Header -->
 
+<!-- ... (Otras partes de tu HTML) -->
 
 <div class="container">
   <form [formGroup]="mascotaForm" (ngSubmit)="onSubmit()">
     <div class="titulo">Registro de la mascota</div>
     <div class="user-details">
 
-      <!-- Campo: Nombre -->
+      <!-- Nombre -->
       <div class="form-group">
         <label for="nombre">Nombre</label>
-        <input
-          formControlName="nombre"
-          type="text"
-          class="form-control"
-          id="nombre"
-          placeholder="Nombre de la mascota">
+        <input formControlName="nombre" type="text" class="form-control" id="nombre"
+               placeholder="Nombre de la mascota">
+        <div *ngIf="mascotaForm.controls['nombre'].invalid && (mascotaForm.controls['nombre'].dirty || mascotaForm.controls['nombre'].touched)"
+             class="error">
+          Nombre es requerido.
+        </div>
       </div>
 
-      <!-- Campo: Raza -->
+
+      <!-- Raza -->
       <div class="form-group">
         <label for="raza">Raza</label>
-        <input
-          formControlName="raza"
-          type="text"
-          class="form-control"
-          id="raza"
-          placeholder="Raza de la mascota">
+        <input formControlName="raza" type="text" class="form-control" id="raza"
+               placeholder="Raza de la mascota">
+        <div *ngIf="mascotaForm.controls['raza'].invalid && (mascotaForm.controls['raza'].dirty || mascotaForm.controls['raza'].touched)"
+             class="error">
+          Raza es requerido.
+        </div>
       </div>
 
-      <!-- Campo: Edad -->
+
+      <!-- Edad -->
       <div class="form-group">
         <label for="edad">Edad</label>
-        <input
-          formControlName="edad"
-          type="number"
-          class="form-control"
-          id="edad"
-          placeholder="Edad de la mascota">
+        <input formControlName="edad" type="number" class="form-control" id="edad"
+               placeholder="Edad de la mascota">
+        <div *ngIf="mascotaForm.controls['edad'].invalid && (mascotaForm.controls['edad'].dirty || mascotaForm.controls['edad'].touched)"
+             class="error">
+          Edad es requerida y debe ser un número positivo.
+        </div>
       </div>
 
-      <!-- Campo: Peso -->
+
+      <!-- Peso -->
       <div class="form-group">
         <label for="peso">Peso</label>
-        <input
-          formControlName="peso"
-          type="number"
-          class="form-control"
-          id="peso"
-          placeholder="Peso de la mascota"
-          step="0.01">
+        <input formControlName="peso" type="number" class="form-control" id="peso"
+               placeholder="Peso de la mascota" step="0.01">
+        <div *ngIf="mascotaForm.controls['peso'].invalid && (mascotaForm.controls['peso'].dirty || mascotaForm.controls['peso'].touched)"
+             class="error">
+          Peso es requerido y debe ser un número positivo.
+        </div>
       </div>
 
-      <!-- Campo: Enfermedad -->
+
+      <!-- Enfermedad -->
       <div class="form-group">
         <label for="enfermedad">Enfermedad</label>
-        <input
-          formControlName="enfermedad"
-          type="text"
-          class="form-control"
-          id="enfermedad"
-          placeholder="Enfermedad">
+        <input formControlName="enfermedad" type="text" class="form-control" id="enfermedad"
+               placeholder="Enfermedad">
+        <div *ngIf="mascotaForm.controls['enfermedad'].invalid && (mascotaForm.controls['enfermedad'].dirty || mascotaForm.controls['enfermedad'].touched)"
+             class="error">
+          Enfermedad es requerida.
+        </div>
       </div>
 
     </div>
-
-    <!-- Botón de enviar -->
-    <button
-      type="submit"
-      class="btn btn-primary"
-      [disabled]="!mascotaForm.valid">
-      Enviar
-    </button>
-
+    <button type="submit" class="btn btn-primary" [disabled]="!mascotaForm.valid">Enviar</button>
   </form>
 </div>
-
 
 
 
