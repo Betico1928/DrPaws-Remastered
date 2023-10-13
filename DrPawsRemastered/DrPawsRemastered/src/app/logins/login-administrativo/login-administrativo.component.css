@@ -146,6 +146,15 @@ button:hover {
   background-color: #cb3963;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+}
+
+
+
 /* Footer */
 .vet-footer {
   background-color: #A1C7E0;
