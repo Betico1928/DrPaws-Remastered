@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MascotaService} from "../../../service/mascota/mascota-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -10,55 +10,48 @@ import {Mascota} from "../../../model/mascota";
   styleUrls: ['./modificar-mascota.component.css']
 })
 
-export class ModificarMascotaComponent
-{
-  /*
-  @Input()
-  formMascota!: Mascota | undefined;
+export class ModificarMascotaComponent implements OnInit {
+  mascotaForm!: FormGroup;
+  id!: number;
 
-
-  mascotaForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private MascotaService: MascotaService, private router: Router, private route:ActivatedRoute) {
-    this.mascotaForm = this.fb.group({
-      id: [''],  // <-- Add the ID here
-      nombre: ['', Validators.required],
-      raza: ['', Validators.required],
-      edad: ['', Validators.required],
-      peso: ['', [Validators.required, Validators.pattern(/^\d*(\.\d{0,2})?$/)]],
-      enfermedad: ['', Validators.required]
-    });
+  constructor(
+    private fb: FormBuilder,
+    private mascotaService: MascotaService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const id = Number(params.get("id"));
-      this.formMascota = this.MascotaService.searchById(id);
+    // Obtener ID desde la ruta
+    this.id = +this.route.snapshot.paramMap.get('id')!;
 
-      this.mascotaForm.setValue({
-        id: this.formMascota?.id,  // <-- Include the ID here
-        nombre: this.formMascota?.nombre,
-        raza: this.formMascota?.raza,
-        edad: this.formMascota?.edad,
-        peso: this.formMascota?.peso,
-        enfermedad: this.formMascota?.enfermedad
-      });
+    // Crear el formulario
+    this.mascotaForm = this.fb.group({
+      nombre: ['', Validators.required],
+      raza: ['', Validators.required],
+      edad: ['', Validators.required],
+      peso: ['', Validators.required],
+      enfermedad: ['', Validators.required]
+    });
+
+    // Cargar datos iniciales de la mascota
+    this.mascotaService.getMascota(this.id).subscribe(mascota => {
+      this.mascotaForm.patchValue(mascota);
     });
   }
 
-
-
-  onSubmit()
-  {
-    if (this.mascotaForm.valid)
-    {
-      // Process your form here
-      console.log('Form values:', this.mascotaForm.value);
-
-      this.MascotaService.update(this.mascotaForm.value)
-
-      this.router.navigate(['/login-administrativo/dashboard-veterinarios']);
+  onSubmit(): void {
+    if (this.mascotaForm.valid) {
+      this.mascotaService.updateMascota(this.id, this.mascotaForm.value).subscribe(() => {
+          alert('Mascota actualizada exitosamente!');
+          this.router.navigate(['login-administrativo/dashboard-veterinarios']);
+        },
+        error => {
+          alert('Ocurrió un error al actualizar la mascota.');
+          console.error(error);
+        }
+      );
     }
   }
-   */
 }
