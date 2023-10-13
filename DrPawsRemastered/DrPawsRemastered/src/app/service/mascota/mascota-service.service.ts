@@ -20,12 +20,14 @@ export class MascotaService
 
   // Read
   // Todas las mascotas
-  getMascotas(): Observable<Mascota[]> {
+  getMascotas(): Observable<Mascota[]>
+  {
     return this.http.get<Mascota[]>(`${this.apiUrl}/all`);
   }
 
   // Una mascota a traves de su ID -TODO-
-  getMascota(id: number): Observable<Mascota> {
+  getMascota(id: number): Observable<Mascota>
+  {
     return this.http.get<Mascota>(`${this.apiUrl}/find/${id}`);
   }
 
@@ -37,4 +39,8 @@ export class MascotaService
   // ----------------------------------------------------------------------------------------------------------------
 
   // Delete
+  deleteMascota(id: number | undefined): Observable<any>
+  {
+    return this.http.delete(`${this.apiUrl}/delete/${id}`);
+  }
 }

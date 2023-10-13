@@ -17,11 +17,22 @@ export class DashboardVeterinarioComponent implements OnInit
     this.getMascotas();
   }
 
-  getMascotas(): void {
+  // Obtener las mascotas:
+  getMascotas(): void
+  {
     this.mascotaService.getMascotas().subscribe(mascotas => this.listaDeMascotas = mascotas);
   }
 
-  deleteMascota(id: number): void {
-    // Implementar la lógica para eliminar una mascota
+  // Borrar mascota:
+  deleteMascota(id: number | undefined): void
+  {
+    // Confirmar si el usuario realmente quiere eliminar la mascota
+    if (confirm('¿Estás seguro de que quieres borrar esta mascota? Esta acción no se podrá deshacer.'))
+    {
+      this.mascotaService.deleteMascota(id).subscribe(response => {
+        // Actualizar la lista de mascotas después de borrar
+        this.getMascotas();
+      });
+    }
   }
 }
