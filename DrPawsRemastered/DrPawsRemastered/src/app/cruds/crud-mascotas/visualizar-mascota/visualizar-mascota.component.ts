@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MascotaService} from "../../../service/mascota/mascota-service.service";
 import {Mascota} from "../../../model/mascota";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -8,21 +8,25 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './visualizar-mascota.component.html',
   styleUrls: ['./visualizar-mascota.component.css']
 })
-export class VisualizarMascotaComponent
+export class VisualizarMascotaComponent implements OnInit
 {
-  /*
-  constructor(private MascotaService: MascotaServiceService, private route:ActivatedRoute) { }
+  searchedMascota?: Mascota;
+  id!: number;
 
-  searchedMascota!: Mascota | undefined;
+  constructor(
+    private route: ActivatedRoute,
+    private mascotaService: MascotaService
+  ) {}
 
-  ngOnInit() : void
-  {
-    this.route.paramMap.subscribe(params => {
-      const id = Number(params.get("id"));
-
-    this.searchedMascota = this.MascotaService.searchById(id);
-    });
+  ngOnInit(): void {
+    this.id = +this.route.snapshot.paramMap.get('id')!;
+    this.loadMascota();
   }
-  */
-}
 
+  private loadMascota(): void {
+    this.mascotaService.getMascota(this.id).subscribe(
+      mascota => this.searchedMascota = mascota,
+      error => alert("Lo sentimos, no pudimos cargar a la mascota")
+    );
+  }
+}
