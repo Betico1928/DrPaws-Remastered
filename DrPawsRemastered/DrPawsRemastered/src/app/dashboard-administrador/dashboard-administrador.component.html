@@ -1,20 +1,23 @@
 <h1>Dashboard del Administrador</h1>
 
-<!-- Verifica si la lista de veterinarios tiene datos -->
-<div *ngIf="veterinarios.length > 0; else noData">
-  <h2>Listado de Veterinarios</h2>
-  <ul>
-    <!-- Itera sobre la lista de veterinarios y muestra sus datos -->
-    <li *ngFor="let vet of veterinarios">
-      <!-- Muestra la información que desees de cada veterinario -->
-      {{ vet.nombre }} - {{ vet.especialidad }}
-      <!-- Ajusta los atributos según tu modelo de datos -->
-    </li>
-  </ul>
-</div>
+<!-- Formulario para Crear/Actualizar veterinario -->
+<form (submit)="saveVeterinario()">
+  <label for="name">Nombre:</label>
+  <input [(ngModel)]="selectedVeterinario.nombre" name="name" required>
 
-<!-- Template para mostrar en caso de que no haya datos disponibles -->
+  <!-- Agrega aquí otros campos que necesites -->
+
+  <button type="submit">Guardar Veterinario</button>
+</form>
+
+<!-- Lista de Veterinarios -->
+<ul *ngIf="veterinarios.length > 0; else noData">
+  <li *ngFor="let vet of veterinarios">
+    {{ vet.nombre }}
+    <button (click)="selectVeterinario(vet)">Editar</button>
+    <button (click)="deleteVeterinario(vet.id)">Eliminar</button>
+  </li>
+</ul>
 <ng-template #noData>
-  <h2>No hay datos disponibles</h2>
+  <p>No hay veterinarios disponibles</p>
 </ng-template>
-

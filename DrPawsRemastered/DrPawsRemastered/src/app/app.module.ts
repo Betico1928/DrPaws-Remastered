@@ -8,7 +8,7 @@ import { LoginAdministrativoComponent } from './login-administrativo/login-admin
 import { DashboardVeterinarioComponent } from './dashboard-veterinario/dashboard-veterinario.component';
 import { CrearMascotaComponent } from './crud-mascotas/crear-mascota/crear-mascota.component';
 import { ModificarMascotaComponent } from './crud-mascotas/modificar-mascota/modificar-mascota.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { VisualizarMascotaComponent } from './crud-mascotas/visualizar-mascota/visualizar-mascota.component';
 import { PorqueNosotrosComponent } from './porque-nosotros/porque-nosotros.component';
 import { ContactoComponent } from './contacto/contacto.component';
@@ -34,6 +34,7 @@ import { DashboardAdministradorComponent } from './dashboard-administrador/dashb
 
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
