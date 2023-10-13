@@ -30,8 +30,8 @@ export class ModificarMascotaComponent implements OnInit {
     this.mascotaForm = this.fb.group({
       nombre: ['', Validators.required],
       raza: ['', Validators.required],
-      edad: ['', Validators.required],
-      peso: ['', Validators.required],
+      edad: ['', [Validators.required, Validators.min(0)]],
+      peso: ['', [Validators.required, Validators.pattern(/^\d*(\.\d{0,2})?$/)]],
       enfermedad: ['', Validators.required]
     });
 
@@ -42,14 +42,18 @@ export class ModificarMascotaComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.mascotaForm.valid) {
-      this.mascotaService.updateMascota(this.id, this.mascotaForm.value).subscribe(() => {
-          alert('Mascota actualizada exitosamente!');
-          this.router.navigate(['login-administrativo/dashboard-veterinarios']);
+    if (this.mascotaForm.valid)
+    {
+      const mascota: Mascota = this.mascotaForm.value;
+      mascota.id = this.id;
+
+      // Llama al método para actualizar la mascota
+      this.mascotaService.updateMascota(mascota.id, mascota).subscribe(response => {
+        alert('Mascota actualizada exitosamente!');
+        this.router.navigate(['login-administrativo/dashboard-veterinarios']);
         },
         error => {
           alert('Ocurrió un error al actualizar la mascota.');
-          console.error(error);
         }
       );
     }

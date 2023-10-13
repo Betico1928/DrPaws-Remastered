@@ -38,7 +38,8 @@ export class MascotaService
   // ----------------------------------------------------------------------------------------------------------------
 
   // Update
-  updateMascota(id: number, mascota: Mascota): Observable<void> {
+  updateMascota(id: number | undefined, mascota: Mascota): Observable<void>
+  {
     return this.http.post<void>(`${this.apiUrl}/update/${id}`, mascota);
   }
 
