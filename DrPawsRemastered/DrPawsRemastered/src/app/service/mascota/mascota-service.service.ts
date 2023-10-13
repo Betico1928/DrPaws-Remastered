@@ -15,6 +15,10 @@ export class MascotaService
 
   // CRUD:
   // Create
+  createMascota(mascota: Mascota): Observable<Mascota>
+  {
+    return this.http.post<Mascota>(`${this.apiUrl}/agregar`, mascota);
+  }
 
   // ----------------------------------------------------------------------------------------------------------------
 
