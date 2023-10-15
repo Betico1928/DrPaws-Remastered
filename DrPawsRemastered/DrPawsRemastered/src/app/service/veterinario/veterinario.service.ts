@@ -15,7 +15,12 @@ export class VeterinarioService
   // Extraer a todos los veterinarios:
   getAllVeterinarios(): Observable<Veterinario[]>
   {
-    alert("Buscando veterinarios:")
     return this.http.get<Veterinario[]>(`${this.apiUrl}/all`);
+  }
+
+  // Actualizar al veterinario:
+  updateVeterinario(id: number, veterinario: Veterinario): Observable<Veterinario> {
+    const url = `${this.apiUrl}/update/${id}`;
+    return this.http.post<Veterinario>(url, veterinario);
   }
 }

@@ -23,4 +23,12 @@ export class DashboardAdministradorComponent
       }
     );
   }
+
+  onChangeActive(veterinario: Veterinario): void {this.veterinarioService.updateVeterinario(veterinario.id, veterinario)
+    .subscribe(updatedVeterinario => {
+      }, error => {
+        alert('Error updating veterinario: ' + error);
+        veterinario.activo = !veterinario.activo; // Revertir el cambio en caso de error
+      });
+  }
 }

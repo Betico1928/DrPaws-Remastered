@@ -47,6 +47,7 @@
       <th scope="col">Nombre</th>
       <th scope="col">Especialidad</th>
       <th scope="col">Activo</th>
+      <th scope="col">Estado</th>
     </tr>
     </thead>
     <tbody>
@@ -56,6 +57,12 @@
       <td>{{ vet.nombre }}</td>
       <td>{{ vet.especialidad }}</td>
       <td>{{ vet.activo ? 'Sí' : 'No' }}</td>
+      <td>
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="vet.activo" (change)="onChangeActive(vet)">
+          <span class="slider round" [ngClass]="{'on': vet.activo}"></span>
+        </label>
+      </td>
     </tr>
     </tbody>
   </table>
