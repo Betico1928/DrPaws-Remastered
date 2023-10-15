@@ -10,6 +10,7 @@ import {PorqueNosotrosComponent} from "./paginas-adicionales/porque-nosotros/por
 import {ContactoComponent} from "./paginas-adicionales/contacto/contacto.component";
 import {ErrorPageComponent} from "./paginas-adicionales/error-page/error-page.component";
 import {LoginUsuarioComponent} from "./logins/login-usuario/login-usuario.component";
+import {DashboardUsuarioComponent} from "./dashboards/dashboard-usuario/dashboard-usuario.component";
 
 const routes: Routes = [
   // Default route
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'contacto', component: ContactoComponent},
 
   {path: 'login-usuario', component: LoginUsuarioComponent},
+  {path: 'login-usuario/dashboard-usuario/:id', component: DashboardUsuarioComponent},
 
   {path: 'login-administrativo', component: LoginAdministrativoComponent},
   {path: 'login-administrativo/dashboard-veterinarios', component: DashboardVeterinarioComponent},
