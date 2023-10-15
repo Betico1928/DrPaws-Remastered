@@ -1,1 +1,125 @@
-<p>dashboard-usuario works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Dashboard-Usuario/stylesDashboardUsuario.css">
+  <title>Dr. Paws - Información de usuario</title>
+
+  <!-- Font  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+  <!-- Fin del Font  -->
+
+  <!-- Footer-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <!-- Fin del Footer-->
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <a [routerLink]="['/home']"  class="logo">DR.PAWS</a>
+  <ul>
+    <li><a [routerLink]="['/home']" class="active">Home</a></li>
+    <li><a [routerLink]="['/porque-nosotros']">About</a></li>
+    <li><a [routerLink]="['/login-administrativo']">Login Administrativo</a></li>
+    <li><a [routerLink]="['/login-usuario']">Login Usuario</a></li>
+    <li><a [routerLink]="['/contacto']">Contact</a></li>
+  </ul>
+</header>
+<!-- Fin del Header -->
+
+
+
+
+<!-- Contenedor principal translúcido -->
+<div class="dashboard-container">
+
+  <!-- Sección de información del usuario -->
+  <!-- Sección de información del usuario -->
+  <div class="user-info" *ngIf="usuario">
+    <div class="user-pic">
+      <img [src]="'/assets/dashboard-usuario/images/alejandro-sanz.png'" alt="Imagen de usuario">
+    </div>
+    <div class="user-details">
+      <div class="detail">
+        <span>Nombre</span>
+        <h2>{{ usuario.nombre }}</h2>
+      </div>
+      <div class="detail">
+        <span>Correo Electrónico</span>
+        <h2>{{ usuario.correo }}</h2>
+      </div>
+      <div class="detail">
+        <span>Teléfono</span>
+        <h2>{{ usuario.celular }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <section class="pet-info">
+    <h1>Mascotas</h1>
+    <table class="pet-table">
+      <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Raza</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Peso</th>
+        <th scope="col" style="width: 200px;"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let mascota of mascotas">
+        <td>{{ mascota.nombre }}</td>
+        <td>{{ mascota.raza }}</td>
+        <td>{{ mascota.edad }}</td>
+        <td>{{ mascota.peso }}</td>
+        <td>
+          <a [routerLink]="['/visualizar-mascota', mascota.id]" class="view-pet-btn">Ver Mascota</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="vet-footer">
+  <div class="footer-content">
+    <div class="social-media">
+      <a href="#" class="social-icon"><i class="fab fa-twitter" style="color: #0099DD;"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-youtube" style="color: #fa2828;"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram" style="color: #FF9944;"></i></a>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="/contacto">Contacto</a>
+      <a href="/porqueNosotros">Acerca de</a>
+      <a href="/porqueNosotros/testimonios">Testimonios</a>
+    </div>
+
+    <div class="footer-contact">
+      <p>Teléfono: (123) 456-7890</p>
+      <p>Email: woof-woof@veterinariadrpaws.com</p>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p>&copy; 2023 Veterinaria Dr. Paws - Todos los derechos reservados.</p>
+  </div>
+</footer>
+<!-- Fin del Footer-->
+
+</body>
+</html>
