@@ -9,4 +9,5 @@ export interface Veterinario
   password: string;
   imagen: string;
   mascotas?: Mascota[];
+  activo?: boolean;
 }

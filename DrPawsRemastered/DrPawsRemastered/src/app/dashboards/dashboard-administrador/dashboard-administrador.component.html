@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Paws - Información de usuario</title>
+  <link rel="stylesheet" href="/Dashboard-Mascotas/stylesDashboardMascotas.css">
+  <title>Dr. Paws - Información de mascotas</title>
 
   <!-- Font  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <!-- Fin del Footer-->
 </head>
+
 <body>
 
 <!-- Header -->
@@ -32,67 +35,35 @@
 </header>
 <!-- Fin del Header -->
 
+<div class="table-container">
+  <p class="titulo">
+    Veterinarios de la veterinaria Dr. Paws
+  </p>
 
-
-
-<!-- Contenedor principal translúcido -->
-<div class="dashboard-container">
-
-  <!-- Sección de información del usuario -->
-  <!-- Sección de información del usuario -->
-  <div class="user-info" *ngIf="usuario">
-    <div class="user-pic">
-      <img [src]="'/assets/dashboard-usuario/images/alejandro-sanz.png'" alt="Imagen de usuario">
-    </div>
-    <div class="user-details">
-      <div class="detail">
-        <span>Nombre</span>
-        <h2>{{ usuario.nombre }}</h2>
-      </div>
-      <div class="detail">
-        <span>Correo Electrónico</span>
-        <h2>{{ usuario.correo }}</h2>
-      </div>
-      <div class="detail">
-        <span>Teléfono</span>
-        <h2>{{ usuario.celular }}</h2>
-      </div>
-    </div>
-  </div>
-
-  <section class="pet-info">
-    <h1>Mascotas</h1>
-    <table class="pet-table">
-      <thead>
-      <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Raza</th>
-        <th scope="col">Edad</th>
-        <th scope="col">Peso</th>
-        <th scope="col" style="width: 200px;"></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let mascota of mascotas">
-        <td>{{ mascota.nombre }}</td>
-        <td>{{ mascota.raza }}</td>
-        <td>{{ mascota.edad }}</td>
-        <td>{{ mascota.peso }}</td>
-        <td>
-          <a [routerLink]="['/visualizar-mascota', mascota.id]" class="view-pet-btn">Ver Mascota</a>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
+  <table class="table table-success table-striped center">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Especialidad</th>
+      <th scope="col">Activo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Angular loop to iterate over veterinarios -->
+    <tr *ngFor="let vet of veterinarios; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ vet.nombre }}</td>
+      <td>{{ vet.especialidad }}</td>
+      <td>{{ vet.activo ? 'Sí' : 'No' }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- Puedes agregar botones adicionales aquí, como un botón para crear un nuevo veterinario, etc. -->
 </div>
 
 
-
-
-
-
-<!-- Footer -->
+<!-- Footer -->    <!-- Footer-->
 <footer class="vet-footer">
   <div class="footer-content">
     <div class="social-media">
@@ -119,6 +90,15 @@
   </div>
 </footer>
 <!-- Fin del Footer-->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const container = document.querySelector('.table-container');
+    console.log("Altura del contenedor:", container.scrollHeight);
+    console.log("Altura visible:", container.clientHeight);
+    console.log("Diferencia (esto debe ser cercano al desplazamiento máximo):", container.scrollHeight - container.clientHeight);
+  });
+</script>
 
 </body>
 </html>

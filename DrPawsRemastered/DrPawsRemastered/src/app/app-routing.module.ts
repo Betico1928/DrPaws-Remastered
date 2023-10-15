@@ -11,6 +11,7 @@ import {ContactoComponent} from "./paginas-adicionales/contacto/contacto.compone
 import {ErrorPageComponent} from "./paginas-adicionales/error-page/error-page.component";
 import {LoginUsuarioComponent} from "./logins/login-usuario/login-usuario.component";
 import {DashboardUsuarioComponent} from "./dashboards/dashboard-usuario/dashboard-usuario.component";
+import {DashboardAdministradorComponent} from "./dashboards/dashboard-administrador/dashboard-administrador.component";
 
 const routes: Routes = [
   // Default route
@@ -26,6 +27,7 @@ const routes: Routes = [
 
   {path: 'login-administrativo', component: LoginAdministrativoComponent},
   {path: 'login-administrativo/dashboard-veterinarios', component: DashboardVeterinarioComponent},
+  {path: 'login-administrativo/dashboard-administrador', component: DashboardAdministradorComponent},
 
   // CRUD Mascotas:
   {path: 'login-administrativo/dashboard-veterinarios/crear-mascota', component: CrearMascotaComponent},

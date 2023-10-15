@@ -16,6 +16,7 @@ import { ErrorPageComponent } from './paginas-adicionales/error-page/error-page.
 import {HttpClientModule} from "@angular/common/http";
 import { DashboardUsuarioComponent } from './dashboards/dashboard-usuario/dashboard-usuario.component';
 import { LoginUsuarioComponent } from './logins/login-usuario/login-usuario.component';
+import { DashboardAdministradorComponent } from './dashboards/dashboard-administrador/dashboard-administrador.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoginUsuarioComponent } from './logins/login-usuario/login-usuario.comp
     ContactoComponent,
     ErrorPageComponent,
     DashboardUsuarioComponent,
-    LoginUsuarioComponent
+    LoginUsuarioComponent,
+    DashboardAdministradorComponent
   ],
   imports: [
     BrowserModule,
