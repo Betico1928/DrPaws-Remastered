@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/Ver-Mascota/stylesVerMascota.css">
-  <title>Dr. Paws - Información de mascota</title>
+  <title>Login - DR.PAWS</title>
+  <link rel="stylesheet" href="/LogIn-Usuario/styleLogInUser.css">
 
   <!-- Font  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,61 +28,25 @@
     <li><a [routerLink]="['/contacto']">Contact</a></li>
   </ul>
 </header>
-<!-- Fin del Header -->
 
+<!-- Mensaje de Error -->
+<div th:if="${error}" id="error-box">
+  <p>ID incorrecto.</p>
+</div>
 
-
-<!-- Sección principal que contiene la información de la mascota -->
-<section class="mascota-section">
-  <!-- Div padre que agrupa la información y la imagen de la mascota -->
-  <div class="mascota-container">
-    <!-- Título "Mi mascota" -->
-    <h2>Mi Mascota</h2>
-    <!-- Parte izquierda del div que muestra la imagen de la mascota -->
-    <div class="mascota-image">
-      <!-- Note: Modify the src path if needed -->
-      <img alt="Imagen de la mascota" src="../../../../assets/crud-mascotas-assets/visualizar-mascota-assets/images/imagen-mascota.png">
+<!-- Cuerpo de la página (formulario de login de usuario) -->
+<div class="login-container">
+  <h2>Iniciar sesión Usuario</h2>
+  <form action="#" method="post" th:action="@{/loginUsuario}">
+    <div class="form-group">
+      <label for="userId">ID de Usuario:</label>
+      <input type="text" id="userId" name="userId" required>
     </div>
-    <!-- Parte derecha del div que muestra la información de la mascota en forma de tabla -->
-    <table class="mascota-info">
-      <tr>
-        <th>Nombre</th>
-        <td>{{ searchedMascota?.nombre }}</td>
-      </tr>
-      <tr>
-        <th>Raza</th>
-        <td>{{ searchedMascota?.raza }}</td>
-      </tr>
-      <tr>
-        <th>Edad</th>
-        <td>{{ searchedMascota?.edad }}</td>
-      </tr>
-      <tr>
-        <th>Peso</th>
-        <td>{{ searchedMascota?.peso }}</td>
-      </tr>
-    </table>
-  </div>
-</section>
+    <button type="submit">Ingresar</button>
+  </form>
+</div>
 
-<!-- Sección de enfermedades debajo del recuadro principal -->
-<section class="enfermedades-section">
-  <h3>Enfermedades</h3>
-  <ul class="mascota-enfermedades">
-    <li>{{ searchedMascota?.enfermedad }}</li>
-  </ul>
-</section>
-
-
-
-
-
-
-
-
-
-
-<!-- Footer -->    <!-- Footer-->
+<!-- Footer -->
 <footer class="vet-footer">
   <div class="footer-content">
     <div class="social-media">
@@ -110,6 +72,5 @@
     <p>&copy; 2023 Veterinaria Dr. Paws - Todos los derechos reservados.</p>
   </div>
 </footer>
-<!-- Fin del Footer-->
 </body>
 </html>

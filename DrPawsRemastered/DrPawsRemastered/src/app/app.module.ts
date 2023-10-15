@@ -14,6 +14,8 @@ import { PorqueNosotrosComponent } from './paginas-adicionales/porque-nosotros/p
 import { ContactoComponent } from './paginas-adicionales/contacto/contacto.component';
 import { ErrorPageComponent } from './paginas-adicionales/error-page/error-page.component';
 import {HttpClientModule} from "@angular/common/http";
+import { DashboardUsuarioComponent } from './dashboards/dashboard-usuario/dashboard-usuario.component';
+import { LoginUsuarioComponent } from './logins/login-usuario/login-usuario.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {HttpClientModule} from "@angular/common/http";
     VisualizarMascotaComponent,
     PorqueNosotrosComponent,
     ContactoComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    DashboardUsuarioComponent,
+    LoginUsuarioComponent
   ],
   imports: [
     BrowserModule,

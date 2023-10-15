@@ -9,6 +9,7 @@ import {VisualizarMascotaComponent} from "./cruds/crud-mascotas/visualizar-masco
 import {PorqueNosotrosComponent} from "./paginas-adicionales/porque-nosotros/porque-nosotros.component";
 import {ContactoComponent} from "./paginas-adicionales/contacto/contacto.component";
 import {ErrorPageComponent} from "./paginas-adicionales/error-page/error-page.component";
+import {LoginUsuarioComponent} from "./logins/login-usuario/login-usuario.component";
 
 const routes: Routes = [
   // Default route
@@ -19,6 +20,8 @@ const routes: Routes = [
   {path: 'porque-nosotros', component: PorqueNosotrosComponent},
   {path: 'contacto', component: ContactoComponent},
 
+  {path: 'login-usuario', component: LoginUsuarioComponent},
+
   {path: 'login-administrativo', component: LoginAdministrativoComponent},
   {path: 'login-administrativo/dashboard-veterinarios', component: DashboardVeterinarioComponent},
 
@@ -27,6 +30,8 @@ const routes: Routes = [
   {path: 'login-administrativo/dashboard-veterinarios/visualizar-mascota/:id', component: VisualizarMascotaComponent},
   {path: 'login-administrativo/dashboard-veterinarios/modificar-mascota/:id', component: ModificarMascotaComponent},
 
+
+  // Error:
   { path: '404', component: ErrorPageComponent },
   { path: '**', redirectTo: '/404' }
 ];
