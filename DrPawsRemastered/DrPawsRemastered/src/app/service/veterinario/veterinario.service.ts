@@ -23,4 +23,11 @@ export class VeterinarioService
     const url = `${this.apiUrl}/update/${id}`;
     return this.http.post<Veterinario>(url, veterinario);
   }
+
+  // Borrar al veterinario:
+  deleteVeterinario(id: number): Observable<void>
+  {
+    const url = `${this.apiUrl}/delete/${id}`;
+    return this.http.delete<void>(url);
+  }
 }

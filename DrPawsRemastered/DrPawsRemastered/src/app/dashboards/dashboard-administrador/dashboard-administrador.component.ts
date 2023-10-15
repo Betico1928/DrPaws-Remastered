@@ -18,17 +18,29 @@ export class DashboardAdministradorComponent
     this.veterinarioService.getAllVeterinarios().subscribe(
       veterinarios => this.veterinarios = veterinarios,
       error => {
-        alert('Error fetching veterinarios - ' + error)
-        alert("Mas detalles - " + error.error)
+        alert('Error buscando a los veterinarios - ' + error)
       }
     );
   }
 
+  // Cambiarle el estado al Veterinario:
   onChangeActive(veterinario: Veterinario): void {this.veterinarioService.updateVeterinario(veterinario.id, veterinario)
     .subscribe(updatedVeterinario => {
       }, error => {
-        alert('Error updating veterinario: ' + error);
+        alert('Error actualizando al veterinario: ' + error);
         veterinario.activo = !veterinario.activo; // Revertir el cambio en caso de error
       });
+  }
+
+  // Borrar a un veterinario:
+  deleteVeterinario(id: number): void {
+    if (confirm('¿Estás seguro de que quieres borrar este veterinario?')) {
+      this.veterinarioService.deleteVeterinario(id).subscribe(() => {
+        this.veterinarios = this.veterinarios!.filter(vet => vet.id !== id);
+      }, error => {
+        console.error('Error deleting veterinario:', error);
+        // Puedes mostrar un mensaje de error al usuario aquí.
+      });
+    }
   }
 }

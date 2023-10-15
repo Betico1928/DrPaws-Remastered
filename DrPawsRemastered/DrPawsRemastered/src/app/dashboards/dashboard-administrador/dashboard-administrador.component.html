@@ -48,20 +48,35 @@
       <th scope="col">Especialidad</th>
       <th scope="col">Activo</th>
       <th scope="col">Estado</th>
+      <th scope="col">Acciones</th>
     </tr>
     </thead>
     <tbody>
     <!-- Angular loop to iterate over veterinarios -->
-    <tr *ngFor="let vet of veterinarios; let i = index">
+    <tr *ngFor="let veterinario of veterinarios; let i = index">
       <td>{{ i + 1 }}</td>
-      <td>{{ vet.nombre }}</td>
-      <td>{{ vet.especialidad }}</td>
-      <td>{{ vet.activo ? 'Sí' : 'No' }}</td>
+      <td>{{ veterinario.nombre }}</td>
+      <td>{{ veterinario.especialidad }}</td>
+      <td>{{ veterinario.activo ? 'Sí' : 'No' }}</td>
       <td>
         <label class="switch">
-          <input type="checkbox" [(ngModel)]="vet.activo" (change)="onChangeActive(vet)">
-          <span class="slider round" [ngClass]="{'on': vet.activo}"></span>
+          <input type="checkbox" [(ngModel)]="veterinario.activo" (change)="onChangeActive(veterinario)">
+          <span class="slider round" [ngClass]="{'on': veterinario.activo}"></span>
         </label>
+      </td>
+      <td>
+        <div class="btn-group">
+          <!-- Buttons for actions -->
+          <a class="btn btn-primary" [routerLink]="['/visualizar-mascota', veterinario.id]"> <!-- TODO -->
+            <i class="fas fa-eye"></i>
+          </a>
+          <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-veterinarios/modificar-mascota', veterinario.id]"> <!-- TODO -->
+            <i class="fas fa-pencil-alt"></i>
+          </a>
+          <a class="btn btn-danger" (click)="deleteVeterinario(veterinario.id)">
+            <i class="fas fa-trash"></i>
+          </a>
+        </div>
       </td>
     </tr>
     </tbody>
