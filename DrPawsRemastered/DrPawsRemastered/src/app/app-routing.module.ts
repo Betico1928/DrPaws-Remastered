@@ -13,6 +13,7 @@ import {LoginUsuarioComponent} from "./logins/login-usuario/login-usuario.compon
 import {DashboardUsuarioComponent} from "./dashboards/dashboard-usuario/dashboard-usuario.component";
 import {DashboardAdministradorComponent} from "./dashboards/dashboard-administrador/dashboard-administrador.component";
 import {CrearVeterinarioComponent} from "./cruds/crud-veterinario/crear-veterinario/crear-veterinario.component";
+import {ModificarVeterinarioComponent} from "./cruds/crud-veterinario/modificar-veterinario/modificar-veterinario.component";
 
 const routes: Routes = [
   // Default route
@@ -32,6 +33,7 @@ const routes: Routes = [
 
   // CRUD Veterinarios:
   {path: 'login-administrativo/dashboard-administrador/crear-veterinario', component: CrearVeterinarioComponent},
+  {path: 'login-administrativo/dashboard-administrador/modificar-veterinario/:id', component: ModificarVeterinarioComponent},
 
   // CRUD Mascotas:
   {path: 'login-administrativo/dashboard-veterinarios/crear-mascota', component: CrearMascotaComponent},

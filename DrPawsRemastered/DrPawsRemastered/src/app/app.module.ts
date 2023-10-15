@@ -18,6 +18,7 @@ import { DashboardUsuarioComponent } from './dashboards/dashboard-usuario/dashbo
 import { LoginUsuarioComponent } from './logins/login-usuario/login-usuario.component';
 import { DashboardAdministradorComponent } from './dashboards/dashboard-administrador/dashboard-administrador.component';
 import { CrearVeterinarioComponent } from './cruds/crud-veterinario/crear-veterinario/crear-veterinario.component';
+import { ModificarVeterinarioComponent } from './cruds/crud-veterinario/modificar-veterinario/modificar-veterinario.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CrearVeterinarioComponent } from './cruds/crud-veterinario/crear-veteri
     DashboardUsuarioComponent,
     LoginUsuarioComponent,
     DashboardAdministradorComponent,
-    CrearVeterinarioComponent
+    CrearVeterinarioComponent,
+    ModificarVeterinarioComponent
   ],
   imports: [
     BrowserModule,
