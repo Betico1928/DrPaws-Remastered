@@ -7,20 +7,13 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class LoginUsuarioService {
-  private API_URL = 'http://localhost:8080/autenticacion/user';
+  private baseUrl = 'http://localhost:8080/autenticacion';
 
-  constructor(private http: HttpClient, private router: Router) {
-  }
+  constructor(private http: HttpClient) { }
 
-  authenticateUser(cedula: string): Observable<any>
+  autenticarUser(cedula: string): Observable<any>
   {
-    alert("Se le va al Spring: " + cedula)
-    return this.http.post<any>(this.API_URL, {cedula: cedula});
-  }
-
-  loginAndRedirect(id: number): void
-  {
-    alert("Llegó: " + id)
-    this.router.navigate([`/login-usuario/dashboard-usuario/${id}`]);
+    const body = { cedula: cedula };
+    return this.http.post(`${this.baseUrl}/user`, body);
   }
 }

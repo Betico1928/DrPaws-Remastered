@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {LoginUsuarioService} from "../../service/logins/login-usuario/login-usuario.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-usuario',
@@ -7,21 +8,24 @@ import {LoginUsuarioService} from "../../service/logins/login-usuario/login-usua
   styleUrls: ['./login-usuario.component.css']
 })
 export class LoginUsuarioComponent {
-  userId = '';
-  errorMessage = '';
+  userId!: string;
+  errorMessage!: string;
 
-  constructor(private authService: LoginUsuarioService) { }
+  constructor(
+    private autenticacionService: LoginUsuarioService,
+    private router: Router
+  ) {}
 
-  onLogin(): void
-  {
-    alert("Se recibió: " + this.userId)
-    this.authService.authenticateUser(this.userId).subscribe(
-      (data) => {
-        this.authService.loginAndRedirect(data.id); // Assumiendo que tu respuesta tiene un campo 'id'
-      },
-      (error) => {
-        this.errorMessage = 'Credenciales incorrectas';
-      }
-    );
+  onLogin(): void {
+    this.autenticacionService.autenticarUser(this.userId).subscribe(
+        response => {
+          if (response.id) {
+            this.router.navigate([`/login-usuario/dashboard-usuario/${response.id}`]);
+          }
+        },
+        error => {
+          this.errorMessage = "Credenciales Incorrectas";
+        }
+      );
   }
 }
