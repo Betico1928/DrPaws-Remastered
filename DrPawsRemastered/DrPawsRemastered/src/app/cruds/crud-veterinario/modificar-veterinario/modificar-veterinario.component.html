@@ -1,1 +1,136 @@
-<p>modificar-veterinario works!</p>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dr. Paws - Información del veterinario</title>
+
+  <!-- Font  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+  <!-- Fin del Font  -->
+
+  <!-- Footer-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <!-- Fin del Footer-->
+</head>
+
+
+<body>
+<!-- Header -->
+<header>
+  <a [routerLink]="['/home']"  class="logo">DR.PAWS</a>
+  <ul>
+    <li><a [routerLink]="['/home']" class="active">Home</a></li>
+    <li><a [routerLink]="['/porque-nosotros']">About</a></li>
+    <li><a [routerLink]="['/login-administrativo']">Login Administrativo</a></li>
+    <li><a [routerLink]="['/login-usuario']">Login Usuario</a></li>
+    <li><a [routerLink]="['/contacto']">Contact</a></li>
+  </ul>
+</header>
+<!-- Fin del Header -->
+
+
+<div class="container">
+  <form [formGroup]="veterinarioForm" (ngSubmit)="onSubmit()">
+    <div class="titulo">Registro de Veterinario</div>
+    <div class="user-details">
+      <!-- Nombre -->
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input formControlName="nombre" type="text" class="form-control" id="nombre"
+               placeholder="Nombre del veterinario">
+        <!-- Error Message -->
+        <div *ngIf="veterinarioForm.controls['nombre'].invalid &&
+                      (veterinarioForm.controls['nombre'].dirty ||
+                       veterinarioForm.controls['nombre'].touched)"
+             class="error">
+          Nombre es requerido.
+        </div>
+      </div>
+
+      <!-- Especialidad -->
+      <div class="form-group">
+        <label for="especialidad">Especialidad</label>
+        <input formControlName="especialidad" type="text" class="form-control" id="especialidad"
+               placeholder="Especialidad del veterinario">
+        <!-- Error Message -->
+        <div *ngIf="veterinarioForm.controls['especialidad'].invalid &&
+                      (veterinarioForm.controls['especialidad'].dirty ||
+                       veterinarioForm.controls['especialidad'].touched)"
+             class="error">
+          Especialidad es requerida.
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input formControlName="email" type="email" class="form-control" id="email"
+               placeholder="Email del veterinario">
+        <!-- Error Message -->
+        <div *ngIf="veterinarioForm.controls['email'].invalid &&
+                      (veterinarioForm.controls['email'].dirty ||
+                       veterinarioForm.controls['email'].touched)"
+             class="error">
+          Email es requerido y debe ser válido.
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input formControlName="password" type="password" class="form-control" id="password"
+               placeholder="Contraseña del veterinario">
+        <!-- Error Message -->
+        <div *ngIf="veterinarioForm.controls['password'].invalid &&
+                      (veterinarioForm.controls['password'].dirty ||
+                       veterinarioForm.controls['password'].touched)"
+             class="error">
+          Contraseña es requerida.
+        </div>
+      </div>
+
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!veterinarioForm.valid">Registrar</button>
+  </form>
+</div>
+
+
+
+
+<!-- Footer -->    <!-- Footer-->
+<footer class="vet-footer">
+  <div class="footer-content">
+    <div class="social-media">
+      <a href="#" class="social-icon"><i class="fab fa-twitter" style="color: #0099DD;"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-youtube" style="color: #fa2828;"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram" style="color: #FF9944;"></i></a>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="/contacto">Contacto</a>
+      <a href="/porqueNosotros">Acerca de</a>
+      <a href="/porqueNosotros/testimonios">Testimonios</a>
+    </div>
+
+    <div class="footer-contact">
+      <p>Teléfono: (123) 456-7890</p>
+      <p>Email: woof-woof@veterinariadrpaws.com</p>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p>&copy; 2023 Veterinaria Dr. Paws - Todos los derechos reservados.</p>
+  </div>
+</footer>
+<!-- Fin del Footer-->
+<!-- Footer -->
+</body>
+</html>

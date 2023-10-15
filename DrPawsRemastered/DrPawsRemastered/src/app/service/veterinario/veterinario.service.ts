@@ -18,6 +18,12 @@ export class VeterinarioService
     return this.http.get<Veterinario[]>(`${this.apiUrl}/all`);
   }
 
+  // Extraer a un veterinario en especifico
+  getVeterinario(id: number): Observable<Veterinario>
+  {
+    return this.http.get<Veterinario>(`${this.apiUrl}/${id}`);
+  }
+
   // Crear un veterinario:
   createVeterinario(veterinario: Veterinario): Observable<Veterinario>
   {
