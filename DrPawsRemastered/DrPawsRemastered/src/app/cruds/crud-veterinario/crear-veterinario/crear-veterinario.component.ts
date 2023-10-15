@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {VeterinarioService} from "../../../service/veterinario/veterinario.service";
 import {Router} from "@angular/router";
+import { ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-crear-veterinario',
@@ -26,7 +27,8 @@ export class CrearVeterinarioComponent {
 
   ngOnInit(): void {}
 
-  onSubmit(): void {
+  onSubmit(): void
+  {
     if (this.veterinarioForm.valid) {
       this.veterinarioService.createVeterinario(this.veterinarioForm.value).subscribe(
         response => {

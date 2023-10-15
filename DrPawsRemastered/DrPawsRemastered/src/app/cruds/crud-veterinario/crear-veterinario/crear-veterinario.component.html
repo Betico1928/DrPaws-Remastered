@@ -57,8 +57,23 @@
       <!-- Especialidad -->
       <div class="form-group">
         <label for="especialidad">Especialidad</label>
-        <input formControlName="especialidad" type="text" class="form-control" id="especialidad"
-               placeholder="Especialidad del veterinario">
+        <input list="especialidades" formControlName="especialidad" id="especialidad" class="input-style" placeholder="Especialidad del veterinario">
+        <datalist id="especialidades">
+          <option value="Cardiología">
+          <option value="Dermatología">
+          <option value="Endocrinología">
+          <option value="Gastroenterología">
+          <option value="Geriatría">
+          <option value="Hematología">
+          <option value="Infectología">
+          <option value="Nefrología">
+          <option value="Neumología">
+          <option value="Neurología">
+          <option value="Oncología">
+          <option value="Pediatría">
+          <option value="Psiquiatría">
+          <option value="Reumatología">
+        </datalist>
         <!-- Error Message -->
         <div *ngIf="veterinarioForm.controls['especialidad'].invalid &&
                       (veterinarioForm.controls['especialidad'].dirty ||
