@@ -17,6 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { DashboardUsuarioComponent } from './dashboards/dashboard-usuario/dashboard-usuario.component';
 import { LoginUsuarioComponent } from './logins/login-usuario/login-usuario.component';
 import { DashboardAdministradorComponent } from './dashboards/dashboard-administrador/dashboard-administrador.component';
+import { CrearVeterinarioComponent } from './cruds/crud-veterinario/crear-veterinario/crear-veterinario.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DashboardAdministradorComponent } from './dashboards/dashboard-administ
     ErrorPageComponent,
     DashboardUsuarioComponent,
     LoginUsuarioComponent,
-    DashboardAdministradorComponent
+    DashboardAdministradorComponent,
+    CrearVeterinarioComponent
   ],
   imports: [
     BrowserModule,
