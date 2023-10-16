@@ -20,8 +20,11 @@ export class ModificarVeterinarioComponent implements OnInit
     private router : Router
   ) { }
 
-  ngOnInit(): void {
-    this.id = +this.route.snapshot.paramMap.get('id')!; // Obtener el ID de la URL
+  ngOnInit(): void
+  {
+    // Obtener el ID de la URL
+    this.id = +this.route.snapshot.paramMap.get('id')!;
+
     this.veterinarioForm = this.fb.group({
       nombre: ['', Validators.required],
       especialidad: ['', Validators.required],
@@ -39,10 +42,13 @@ export class ModificarVeterinarioComponent implements OnInit
     );
   }
 
-  onSubmit(): void {
+  onSubmit(): void
+  {
     if (this.veterinarioForm.valid)
     {
-      this.veterinarioService.updateVeterinario(this.id, this.veterinarioForm.value).subscribe(
+      const idDelVeterinario = this.id
+
+      this.veterinarioService.updateVeterinario(idDelVeterinario, this.veterinarioForm.value).subscribe(
         () => {
           alert('Veterinario actualizado exitosamente!')
           this.router.navigate(['login-administrativo/dashboard-administrador']);

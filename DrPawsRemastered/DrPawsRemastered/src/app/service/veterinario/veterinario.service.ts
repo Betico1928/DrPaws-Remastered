@@ -32,7 +32,10 @@ export class VeterinarioService
 
 
   // Actualizar al veterinario:
-  updateVeterinario(id: number, veterinario: Veterinario): Observable<Veterinario> {
+  updateVeterinario(id: number, veterinario: Veterinario): Observable<Veterinario>
+  {
+    veterinario.id = id
+
     const url = `${this.apiUrl}/update/${id}`;
     return this.http.post<Veterinario>(url, veterinario);
   }
