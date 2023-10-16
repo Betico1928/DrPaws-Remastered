@@ -20,6 +20,7 @@ import { DashboardAdministradorComponent } from './dashboards/dashboard-administ
 import { CrearVeterinarioComponent } from './cruds/crud-veterinario/crear-veterinario/crear-veterinario.component';
 import { ModificarVeterinarioComponent } from './cruds/crud-veterinario/modificar-veterinario/modificar-veterinario.component';
 import { VisualizarVeterinarioComponent } from './cruds/crud-veterinario/visualizar-veterinario/visualizar-veterinario.component';
+import { AsignarTratamientoComponent } from './tratamientos/asignar-tratamiento/asignar-tratamiento.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { VisualizarVeterinarioComponent } from './cruds/crud-veterinario/visuali
     DashboardAdministradorComponent,
     CrearVeterinarioComponent,
     ModificarVeterinarioComponent,
-    VisualizarVeterinarioComponent
+    VisualizarVeterinarioComponent,
+    AsignarTratamientoComponent
   ],
   imports: [
     BrowserModule,
