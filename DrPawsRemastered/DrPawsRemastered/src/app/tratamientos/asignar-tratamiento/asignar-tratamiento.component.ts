@@ -64,6 +64,11 @@ export class AsignarTratamientoComponent implements OnInit
         enfermedad : mascota.enfermedad
       });
     });
+
+    // Extraer los medicamentos para ponerlos en la lista desplegable:
+    this.tratamientoService.getMedicamentos().subscribe(medicamentos => {
+      this.medicamentos = medicamentos;
+    }
   }
 
   onSubmit() {
@@ -76,6 +81,9 @@ export class AsignarTratamientoComponent implements OnInit
         fechaFin: this.datosForm.get('fechaFin')!.value,
         costo: 0,
         frecuencia: this.datosForm.get('frecuencia')!.value,
+        idMascota: this.mascotaId,
+        idVeterinario: this.veterinarioId,
+        idMedicamento: this.datosForm.get('medicamento')!.value
       }
 
       this.tratamientoService.addTratamiento(tratamiento).subscribe(response => {

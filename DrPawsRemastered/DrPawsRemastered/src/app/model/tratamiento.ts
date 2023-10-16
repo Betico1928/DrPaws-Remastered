@@ -11,7 +11,7 @@ export interface Tratamiento
   fechaFin : Date;
   costo : number;
   frecuencia : String;
-  mascota?: Mascota;
-  veterinario?: Veterinario;
-  medicamentos?: Medicamento[];
+  idMascota: number;
+  idVeterinario: number;
+  idMedicamento: number;
 }
