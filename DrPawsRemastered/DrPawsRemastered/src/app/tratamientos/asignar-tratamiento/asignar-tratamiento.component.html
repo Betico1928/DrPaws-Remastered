@@ -3,3 +3,150 @@
   <p>ID del Veterinario: {{ veterinarioId }}</p>
   <p>ID de la Mascota: {{ mascotaId }}</p>
 </div>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Update-Mascota/stylesUpdateMascota.css">
+  <title>Dr. Paws - Información de mascotas</title>
+
+  <!-- Font  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+  <!-- Fin del Font  -->
+
+  <!-- Footer-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <!-- Fin del Footer-->
+</head>
+
+<!-- Header -->
+<header>
+  <a [routerLink]="['/home']"  class="logo">DR.PAWS</a>
+  <ul>
+    <li><a [routerLink]="['/home']" class="active">Home</a></li>
+    <li><a [routerLink]="['/porque-nosotros']">About</a></li>
+    <li><a [routerLink]="['/login-administrativo']">Login Administrativo</a></li>
+    <li><a [routerLink]="['/login-usuario']">Login Usuario</a></li>
+    <li><a [routerLink]="['/contacto']">Contact</a></li>
+  </ul>
+</header>
+<!-- Fin del Header -->
+
+<body>
+<div class="container">
+  <form [formGroup]="datosForm" (ngSubmit)="onSubmit()">
+    <div class="titulo">Asignación de Tratamiento</div>
+    <div class="user-details">
+
+      <!-- ID Veterinario -->
+      <div class="form-group">
+        <label for="id">ID Veterinario</label>
+        <input formControlName="idVeterinario" type="number" class="form-control" id="id" placeholder="ID del Veterinario" readonly>
+      </div>
+
+      <!-- Nombre Veterinario -->
+      <div class="form-group">
+        <label for="nombreVet">Nombre Veterinario</label>
+        <input formControlName="nombreVeterinario" type="text" class="form-control" id="nombreVet" placeholder="Nombre del Veterinario" readonly>
+      </div>
+
+      <!-- Especialidad Veterinario -->
+      <div class="form-group">
+        <label for="especialidad">Especialidad</label>
+        <input formControlName="especialidadVeterinario" type="text" class="form-control" id="especialidad" placeholder="Especialidad del Veterinario" readonly>
+      </div>
+
+      <!-- Nombre -->
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input formControlName="nombreMascota" type="text" class="form-control" id="nombre"
+               placeholder="Nombre de la mascota">
+        <div *ngIf="datosForm.controls['nombreMascota'].invalid && (datosForm.controls['nombreMascota'].dirty || datosForm.controls['nombreMascota'].touched)"
+             class="error">
+          Nombre es requerido.
+        </div>
+      </div>
+
+      <!-- Raza -->
+      <div class="form-group">
+        <label for="raza">Raza</label>
+        <input formControlName="raza" type="text" class="form-control" id="raza" placeholder="Raza de la mascota">
+        <div *ngIf="datosForm.controls['raza'].invalid && (datosForm.controls['raza'].dirty || datosForm.controls['raza'].touched)"
+             class="error">
+          Raza es requerido.
+        </div>
+      </div>
+
+      <!-- Edad -->
+      <div class="form-group">
+        <label for="edad">Edad</label>
+        <input formControlName="edad" type="number" class="form-control" id="edad" placeholder="Edad de la mascota">
+        <div *ngIf="datosForm.controls['edad'].invalid && (datosForm.controls['edad'].dirty || datosForm.controls['edad'].touched)"
+             class="error">
+          Edad es requerida y debe ser un número positivo.
+        </div>
+      </div>
+
+      <!-- Peso -->
+      <div class="form-group">
+        <label for="peso">Peso</label>
+        <input formControlName="peso" type="number" class="form-control" id="peso" placeholder="Peso de la mascota" step="0.01">
+        <div *ngIf="datosForm.controls['peso'].invalid && (datosForm.controls['peso'].dirty || datosForm.controls['peso'].touched)"
+             class="error">
+          Peso es requerido y debe ser un número positivo.
+        </div>
+      </div>
+
+      <!-- Enfermedad -->
+      <div class="form-group">
+        <label for="enfermedad">Enfermedad</label>
+        <input formControlName="enfermedad" type="text" class="form-control" id="enfermedad"
+               placeholder="Enfermedad">
+        <div *ngIf="datosForm.controls['enfermedad'].invalid && (datosForm.controls['enfermedad'].dirty || datosForm.controls['enfermedad'].touched)"
+             class="error">
+          Enfermedad es requerida.
+        </div>
+      </div>
+
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!datosForm.valid">Enviar</button>
+  </form>
+</div>
+
+<!-- Footer -->    <!-- Footer-->
+<footer class="vet-footer">
+  <div class="footer-content">
+    <div class="social-media">
+      <a href="#" class="social-icon"><i class="fab fa-twitter" style="color: #0099DD;"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-youtube" style="color: #fa2828;"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram" style="color: #FF9944;"></i></a>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="/contacto">Contacto</a>
+      <a href="/porqueNosotros">Acerca de</a>
+      <a href="/porqueNosotros/testimonios">Testimonios</a>
+    </div>
+
+    <div class="footer-contact">
+      <p>Teléfono: (123) 456-7890</p>
+      <p>Email: woof-woof@veterinariadrpaws.com</p>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p>&copy; 2023 Veterinaria Dr. Paws - Todos los derechos reservados.</p>
+  </div>
+</footer>
+<!-- Fin del Footer-->
+</body>
+</html>
+
