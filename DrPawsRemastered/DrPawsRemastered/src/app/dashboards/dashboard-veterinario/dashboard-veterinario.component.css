@@ -62,6 +62,13 @@ header ul li a:hover,
 
 /* Fin de menu*/
 
+.greeting-container {
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 10px; /* Espacio entre los elementos */
+}
+
+
 .greeting-box {
   background-color: rgba(255, 255, 255, 0.9); /* blanco con 0.8 de opacidad */
   padding: 10px 20px;

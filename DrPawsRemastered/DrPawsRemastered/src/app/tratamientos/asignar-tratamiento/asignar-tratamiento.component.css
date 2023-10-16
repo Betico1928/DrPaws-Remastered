@@ -103,8 +103,24 @@ body::before {
 
 .column {
   flex: 1;
-  margin-right: 15px; /* margen entre las columnas */
+  margin-right: 50px; /* margen entre las columnas */
+  width: 48%;
 }
+
+.form-control,
+input[type="date"] {
+  width: 250px;
+  height: 35px;
+}
+
+
+.form-control
+{
+  width: 600px;
+}
+
+
+
 
 
 .container {
@@ -157,6 +173,8 @@ body::before {
   font-size: 16px;
   color: #fff;
   border-radius: 5px;
+  width: 100%;
+  margin: 0 auto;
   cursor: pointer;
   transition: background-color 0.3s;
 }

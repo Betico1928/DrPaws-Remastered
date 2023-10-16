@@ -52,7 +52,7 @@
       <div class="form-group">
         <label for="nombre">Nombre de la mascota</label>
         <input formControlName="nombreMascota" type="text" class="form-control" id="nombre"
-               placeholder="Nombre de la mascota">
+               placeholder="Nombre de la mascota" readonly>
         <div *ngIf="datosForm.controls['nombreMascota'].invalid && (datosForm.controls['nombreMascota'].dirty || datosForm.controls['nombreMascota'].touched)"
              class="error">
           Nombre es requerido.
@@ -62,7 +62,7 @@
       <!-- Raza -->
       <div class="form-group">
         <label for="raza">Raza</label>
-        <input formControlName="raza" type="text" class="form-control" id="raza" placeholder="Raza de la mascota">
+        <input formControlName="raza" type="text" class="form-control" id="raza" placeholder="Raza de la mascota" readonly>
         <div *ngIf="datosForm.controls['raza'].invalid && (datosForm.controls['raza'].dirty || datosForm.controls['raza'].touched)"
              class="error">
           Raza es requerido.
@@ -72,7 +72,7 @@
       <!-- Edad -->
       <div class="form-group">
         <label for="edad">Edad</label>
-        <input formControlName="edad" type="number" class="form-control" id="edad" placeholder="Edad de la mascota">
+        <input formControlName="edad" type="number" class="form-control" id="edad" placeholder="Edad de la mascota" readonly>
         <div *ngIf="datosForm.controls['edad'].invalid && (datosForm.controls['edad'].dirty || datosForm.controls['edad'].touched)"
              class="error">
           Edad es requerida y debe ser un número positivo.
@@ -82,7 +82,7 @@
       <!-- Peso -->
       <div class="form-group">
         <label for="peso">Peso</label>
-        <input formControlName="peso" type="number" class="form-control" id="peso" placeholder="Peso de la mascota" step="0.01">
+        <input formControlName="peso" type="number" class="form-control" id="peso" placeholder="Peso de la mascota" step="0.01" readonly>
         <div *ngIf="datosForm.controls['peso'].invalid && (datosForm.controls['peso'].dirty || datosForm.controls['peso'].touched)"
              class="error">
           Peso es requerido y debe ser un número positivo.
@@ -93,7 +93,7 @@
       <div class="form-group">
         <label for="enfermedad">Enfermedad</label>
         <input formControlName="enfermedad" type="text" class="form-control" id="enfermedad"
-               placeholder="Enfermedad">
+               placeholder="Enfermedad" readonly>
         <div *ngIf="datosForm.controls['enfermedad'].invalid && (datosForm.controls['enfermedad'].dirty || datosForm.controls['enfermedad'].touched)"
              class="error">
           Enfermedad es requerida.
@@ -104,39 +104,38 @@
       <div class="column">
         <!-- Nombre del tratamiento -->
         <div class="form-group">
-          <label for="tratamiento">Nombre del Tratamiento</label>
-          <input formControlName="tratamiento" type="text" class="form-control" id="tratamiento" placeholder="Nombre del tratamiento">
-          <!-- Aquí puedes agregar validación si es necesario -->
+          <label for="nombreTratamiento">Nombre del tratamiento</label>
+          <input formControlName="nombreTratamiento" type="text" class="form-control" id="nombreTratamiento" placeholder="Nombre del tratamiento">
         </div>
+
         <!-- Descripción -->
         <div class="form-group">
           <label for="descripcion">Descripción</label>
-          <textarea formControlName="descripcion" class="form-control" id="descripcion" placeholder="Descripción del tratamiento"></textarea>
-          <!-- Aquí puedes agregar validación si es necesario -->
+          <input formControlName="descripcion" type="text" class="form-control" id="descripcion" placeholder="Descripción del tratamiento">
         </div>
+
         <!-- Fecha de inicio -->
         <div class="form-group">
-          <label for="fechaInicio">Fecha de Inicio</label>
+          <label for="fechaInicio">Fecha de inicio</label>
           <input formControlName="fechaInicio" type="date" class="form-control" id="fechaInicio">
-          <!-- Aquí puedes agregar validación si es necesario -->
         </div>
+
         <!-- Fecha de fin -->
         <div class="form-group">
-          <label for="fechaFin">Fecha de Fin</label>
+          <label for="fechaFin">Fecha de fin</label>
           <input formControlName="fechaFin" type="date" class="form-control" id="fechaFin">
-          <!-- Aquí puedes agregar validación si es necesario -->
         </div>
+
         <!-- Frecuencia -->
         <div class="form-group">
           <label for="frecuencia">Frecuencia</label>
-          <input formControlName="frecuencia" type="text" class="form-control" id="frecuencia" placeholder="Frecuencia del tratamiento">
-          <!-- Aquí puedes agregar validación si es necesario -->
+          <input formControlName="frecuencia" type="text" class="form-control" id="frecuencia" placeholder="Ej: Cada 8 horas">
         </div>
+
         <!-- Medicamento -->
         <div class="form-group">
           <label for="medicamento">Medicamento</label>
-          <input formControlName="medicamento" type="text" class="form-control" id="medicamento" placeholder="Medicamento prescrito">
-          <!-- Aquí puedes agregar validación si es necesario -->
+          <input formControlName="medicamento" type="text" class="form-control" id="medicamento" placeholder="ID del medicamento">
         </div>
     </div>
     </div>

@@ -34,8 +34,13 @@
   </ul>
 </header>
 <!-- Fin del Header -->
-<div class="greeting-box">
-  Hola, {{ veterinario?.nombre }}
+<div class="greeting-container">
+  <div class="greeting-box">
+    Nombre del Veterinario: {{ veterinario?.nombre }}
+  </div>
+  <div class="greeting-box">
+    Especialización del Veterinario: {{ veterinario?.especialidad }}
+  </div>
 </div>
 
 <div class="table-container">
