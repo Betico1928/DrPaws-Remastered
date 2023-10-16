@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MascotaService} from "../../service/mascota/mascota-service.service";
 import {Mascota} from "../../model/mascota";
+import {Veterinario} from "../../model/veterinario";
+import {VeterinarioService} from "../../service/veterinario/veterinario.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard-veterinario',
@@ -11,10 +14,32 @@ export class DashboardVeterinarioComponent implements OnInit
 {
   listaDeMascotas: Mascota[] = [];
 
-  constructor(private mascotaService: MascotaService) { }
+  id! : number;
+  veterinario? : Veterinario
 
-  ngOnInit(): void {
+  constructor(
+    private mascotaService: MascotaService,
+    private veterinarioService: VeterinarioService,
+
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void
+  {
+    // Cargar a las mascotas:
     this.getMascotas();
+
+    // Cargar al veterinario:
+    this.id = +this.route.snapshot.paramMap.get('id')!;
+    this.loadVeterinario();
+  }
+
+  private loadVeterinario() : void
+  {
+    this.veterinarioService.getVeterinario(this.id).subscribe(
+      veterinario => this.veterinario = veterinario,
+      error => alert("Lo sentimos, no pudimos cargar al veterinario")
+    );
   }
 
   // Obtener las mascotas:

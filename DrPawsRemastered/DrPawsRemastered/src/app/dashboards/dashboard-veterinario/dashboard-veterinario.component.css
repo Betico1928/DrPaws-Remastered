@@ -62,7 +62,16 @@ header ul li a:hover,
 
 /* Fin de menu*/
 
-
+.greeting-box {
+  background-color: rgba(255, 255, 255, 0.9); /* blanco con 0.8 de opacidad */
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  text-align: center;
+  margin: 100px auto 10px auto;
+  width: max-content;
+  font-family: 'Poppins', sans-serif;
+}
 
 
 
@@ -73,15 +82,15 @@ header ul li a:hover,
   align-items: center; /* Centrar hijos horizontalmente */
   justify-content: center; /* Centrar hijos verticalmente */
   background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con un 70% de opacidad */
-  margin: 100px auto 0 auto; /* Margen superior de 40px, centrado horizontalmente */
+  margin: auto auto auto auto; /* Margen superior de 40px, centrado horizontalmente */
   border-radius: 15px; /* bordes redondeados, puedes ajustar a tu gusto */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Una ligera sombra para darle un efecto elevado */
   overflow: hidden; /* Asegura que nada sobresalga del contenedor, incluido el borde redondeado */
   max-width: 95%; /* Limita el ancho máximo para asegurar margen a los lados en vistas pequeñas */
-  max-height: 600px; /* o el valor que consideres adecuado */
+  max-height: 70%; /* o el valor que consideres adecuado */
   overflow-y: auto; /* Añade scroll vertical sólo cuando sea necesario */
   padding: 0;
-  height: 600px;
+  height: 70%;
 }
 
 /* Estilos para la tabla */
