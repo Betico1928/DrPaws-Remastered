@@ -106,12 +106,20 @@
         <div class="form-group">
           <label for="nombreTratamiento">Nombre del tratamiento</label>
           <input formControlName="nombreTratamiento" type="text" class="form-control" id="nombreTratamiento" placeholder="Nombre del tratamiento">
+          <div *ngIf="datosForm.controls['nombreTratamiento'].invalid && (datosForm.controls['nombreTratamiento'].dirty || datosForm.controls['nombreTratamiento'].touched)"
+               class="error">
+            El nombre de tratamiento es requerido.
+          </div>
         </div>
 
         <!-- Descripción -->
         <div class="form-group">
           <label for="descripcion">Descripción</label>
           <input formControlName="descripcion" type="text" class="form-control" id="descripcion" placeholder="Descripción del tratamiento">
+          <div *ngIf="datosForm.controls['descripcion'].invalid && (datosForm.controls['descripcion'].dirty || datosForm.controls['descripcion'].touched)"
+               class="error">
+            La descripción es requerida.
+          </div>
         </div>
 
         <!-- Fecha de inicio -->
@@ -130,12 +138,20 @@
         <div class="form-group">
           <label for="frecuencia">Frecuencia</label>
           <input formControlName="frecuencia" type="text" class="form-control" id="frecuencia" placeholder="Ej: Cada 8 horas">
+          <div *ngIf="datosForm.controls['frecuencia'].invalid && (datosForm.controls['frecuencia'].dirty || datosForm.controls['frecuencia'].touched)"
+               class="error">
+            La frecuencia es requerida.
+          </div>
         </div>
 
         <!-- Medicamento -->
         <div class="form-group">
           <label for="medicamento">Medicamento</label>
           <input formControlName="medicamento" type="text" class="form-control" id="medicamento" placeholder="ID del medicamento">
+          <div *ngIf="datosForm.controls['medicamento'].invalid && (datosForm.controls['medicamento'].dirty || datosForm.controls['medicamento'].touched)"
+               class="error">
+            El medicamento es requerido.
+          </div>
         </div>
     </div>
     </div>

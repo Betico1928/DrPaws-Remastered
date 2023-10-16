@@ -27,15 +27,16 @@ export class AsignarTratamientoComponent implements OnInit
     private veterinarioService : VeterinarioService
   ) {
     this.datosForm = this.fb.group({
-      idVeterinario: ['', Validators.required],
-      nombreVeterinario: ['', Validators.required],
-      especialidadVeterinario: ['', Validators.required],
-
       nombreMascota: ['', Validators.required],
       raza: ['', Validators.required],
       edad: ['', [Validators.required, Validators.min(0)]],
       peso: ['', [Validators.required, Validators.min(0.01)]],
       enfermedad: ['', Validators.required],
+      
+      nombreTratamiento: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      frecuencia: ['', Validators.required],
+      medicamento: ['', Validators.required],
     });
   }
 
