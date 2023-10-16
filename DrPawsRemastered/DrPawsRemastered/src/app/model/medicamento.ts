@@ -4,6 +4,8 @@ export interface Medicamento
 {
   id: number;
   nombre: string;
-  precio: number;
-  tratamiento?: Tratamiento;
+  precioVenta: number;
+  precioCompra: number;
+  unidadesDisponibles: number;
+  unidadesVendidas: number;
 }

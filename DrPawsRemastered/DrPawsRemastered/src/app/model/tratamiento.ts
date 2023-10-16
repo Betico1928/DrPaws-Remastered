@@ -4,10 +4,14 @@ import {Veterinario} from "./veterinario";
 
 export interface Tratamiento
 {
-  id: number;
-  veterinario?: Veterinario;
+  id : number;
+  nombre : string;
+  descripcion : string;
+  fechaInicio : Date;
+  fechaFin : Date;
+  costo : number;
+  frecuencia : String;
   mascota?: Mascota;
+  veterinario?: Veterinario;
   medicamentos?: Medicamento[];
-  nombre: string;
-  fecha: string;
 }
