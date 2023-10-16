@@ -3,6 +3,8 @@ import {ActivatedRoute} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {VeterinarioService} from "../../service/veterinario/veterinario.service";
 import {MascotaService} from "../../service/mascota/mascota-service.service";
+import {Tratamiento} from "../../model/tratamiento";
+import {TratamientoService} from "../../service/tratamiento/tratamiento.service";
 
 @Component({
   selector: 'app-asignar-tratamiento',
@@ -24,7 +26,8 @@ export class AsignarTratamientoComponent implements OnInit
     private fb: FormBuilder,
 
     private mascotaService : MascotaService,
-    private veterinarioService : VeterinarioService
+    private veterinarioService : VeterinarioService,
+    private tratamientoService : TratamientoService
   ) {
     this.datosForm = this.fb.group({
       nombreMascota: ['', Validators.required],
@@ -32,11 +35,13 @@ export class AsignarTratamientoComponent implements OnInit
       edad: ['', [Validators.required, Validators.min(0)]],
       peso: ['', [Validators.required, Validators.min(0.01)]],
       enfermedad: ['', Validators.required],
-      
+
       nombreTratamiento: ['', Validators.required],
       descripcion: ['', Validators.required],
       frecuencia: ['', Validators.required],
       medicamento: ['', Validators.required],
+      fechaInicio: ['', Validators.required],
+      fechaFin: ['', Validators.required]
     });
   }
 
@@ -62,6 +67,25 @@ export class AsignarTratamientoComponent implements OnInit
   }
 
   onSubmit() {
-    alert("Hola")
+    if (this.datosForm.valid) {
+      const tratamiento: Tratamiento = {
+        id: 0,
+        nombre: this.datosForm.get('nombreTratamiento')!.value,
+        descripcion: this.datosForm.get('descripcion')!.value,
+        fechaInicio: this.datosForm.get('fechaInicio')!.value,
+        fechaFin: this.datosForm.get('fechaFin')!.value,
+        costo: 0,
+        frecuencia: this.datosForm.get('frecuencia')!.value,
+      }
+
+      this.tratamientoService.addTratamiento(tratamiento).subscribe(response => {
+        alert("Tratamiento generado exitosamente.");
+        console.log('Tratamiento generado exitosamente.', response);
+      }, error => {
+        // Maneja los errores que puedan surgir
+        console.error('Error al generado el tratamiento:', error);
+      });
+    }
   }
 }
+
