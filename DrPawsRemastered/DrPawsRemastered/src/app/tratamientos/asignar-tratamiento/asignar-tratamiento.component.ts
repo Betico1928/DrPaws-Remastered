@@ -15,6 +15,10 @@ export class AsignarTratamientoComponent implements OnInit
   veterinarioId!: number;
   mascotaId!: number;
 
+  // Almacenamiento de datos de veterinario:
+  nombreVeterinario!: string;
+  especialidadVeterinario!: string;
+
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -41,11 +45,8 @@ export class AsignarTratamientoComponent implements OnInit
 
     // Extraer los datos de mascota y veterinario:
     this.veterinarioService.getVeterinario(this.veterinarioId).subscribe(veterinario => {
-      this.datosForm.patchValue({
-        idVeterinario: veterinario.id,
-        nombreVeterinario: veterinario.nombre,
-        especialidadVeterinario: veterinario.especialidad
-      });
+      this.nombreVeterinario = veterinario.nombre;
+      this.especialidadVeterinario = veterinario.especialidad;
     });
 
     this.mascotaService.getMascota(this.mascotaId).subscribe(mascota => {

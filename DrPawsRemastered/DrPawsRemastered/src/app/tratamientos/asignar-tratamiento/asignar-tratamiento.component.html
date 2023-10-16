@@ -1,10 +1,3 @@
-<p>asignar-tratamiento works!</p>
-<div>
-  <p>ID del Veterinario: {{ veterinarioId }}</p>
-  <p>ID de la Mascota: {{ mascotaId }}</p>
-</div>
-
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/Update-Mascota/stylesUpdateMascota.css">
-  <title>Dr. Paws - Información de mascotas</title>
+  <title>Dr. Paws - Asignación de Tratamiento</title>
 
   <!-- Font  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,32 +33,23 @@
 <!-- Fin del Header -->
 
 <body>
+<div class="greeting-container">
+  <div class="greeting-box">
+    Nombre del Veterinario: {{ nombreVeterinario }}
+  </div>
+  <div class="greeting-box">
+    Especialización del Veterinario: {{ especialidadVeterinario }}
+  </div>
+</div>
+
+
 <div class="container">
   <form [formGroup]="datosForm" (ngSubmit)="onSubmit()">
     <div class="titulo">Asignación de Tratamiento</div>
     <div class="user-details">
-
-      <!-- ID Veterinario -->
-      <div class="form-group">
-        <label for="id">ID Veterinario</label>
-        <input formControlName="idVeterinario" type="number" class="form-control" id="id" placeholder="ID del Veterinario" readonly>
-      </div>
-
-      <!-- Nombre Veterinario -->
-      <div class="form-group">
-        <label for="nombreVet">Nombre Veterinario</label>
-        <input formControlName="nombreVeterinario" type="text" class="form-control" id="nombreVet" placeholder="Nombre del Veterinario" readonly>
-      </div>
-
-      <!-- Especialidad Veterinario -->
-      <div class="form-group">
-        <label for="especialidad">Especialidad</label>
-        <input formControlName="especialidadVeterinario" type="text" class="form-control" id="especialidad" placeholder="Especialidad del Veterinario" readonly>
-      </div>
-
       <!-- Nombre -->
       <div class="form-group">
-        <label for="nombre">Nombre</label>
+        <label for="nombre">Nombre de la mascota</label>
         <input formControlName="nombreMascota" type="text" class="form-control" id="nombre"
                placeholder="Nombre de la mascota">
         <div *ngIf="datosForm.controls['nombreMascota'].invalid && (datosForm.controls['nombreMascota'].dirty || datosForm.controls['nombreMascota'].touched)"
