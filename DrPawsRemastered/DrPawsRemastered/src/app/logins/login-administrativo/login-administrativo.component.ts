@@ -28,7 +28,8 @@ export class LoginAdministrativoComponent
     this.autenticacionService.autenticarVeterinario(this.credenciales).subscribe(
       data => {
         console.log('Autenticación exitosa!', data);
-        this.router.navigate(['/login-administrativo/dashboard-veterinarios']);
+
+        this.router.navigate([`/login-administrativo/dashboard-veterinarios/${data.id}`]);
       },
       error => {
         console.log('Error en autenticación', error);

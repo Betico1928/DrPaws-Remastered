@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'login-usuario/dashboard-usuario/:id', component: DashboardUsuarioComponent},
 
   {path: 'login-administrativo', component: LoginAdministrativoComponent},
-  {path: 'login-administrativo/dashboard-veterinarios', component: DashboardVeterinarioComponent},
+  {path: 'login-administrativo/dashboard-veterinarios/:id', component: DashboardVeterinarioComponent},
   {path: 'login-administrativo/dashboard-administrador', component: DashboardAdministradorComponent},
 
   // CRUD Veterinarios:
