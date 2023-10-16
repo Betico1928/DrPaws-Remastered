@@ -96,6 +96,17 @@ body::before {
   z-index: -1; /* Se asegura de que el cuadrado quede detrás del contenido */
 }
 
+.user-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  margin-right: 15px; /* margen entre las columnas */
+}
+
+
 .container {
   max-width: 800px;
   margin: auto auto auto auto;

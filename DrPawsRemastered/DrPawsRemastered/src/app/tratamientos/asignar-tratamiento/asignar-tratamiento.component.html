@@ -47,6 +47,7 @@
   <form [formGroup]="datosForm" (ngSubmit)="onSubmit()">
     <div class="titulo">Asignación de Tratamiento</div>
     <div class="user-details">
+      <div class="column">
       <!-- Nombre -->
       <div class="form-group">
         <label for="nombre">Nombre de la mascota</label>
@@ -98,7 +99,46 @@
           Enfermedad es requerida.
         </div>
       </div>
+      </div>
 
+      <div class="column">
+        <!-- Nombre del tratamiento -->
+        <div class="form-group">
+          <label for="tratamiento">Nombre del Tratamiento</label>
+          <input formControlName="tratamiento" type="text" class="form-control" id="tratamiento" placeholder="Nombre del tratamiento">
+          <!-- Aquí puedes agregar validación si es necesario -->
+        </div>
+        <!-- Descripción -->
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea formControlName="descripcion" class="form-control" id="descripcion" placeholder="Descripción del tratamiento"></textarea>
+          <!-- Aquí puedes agregar validación si es necesario -->
+        </div>
+        <!-- Fecha de inicio -->
+        <div class="form-group">
+          <label for="fechaInicio">Fecha de Inicio</label>
+          <input formControlName="fechaInicio" type="date" class="form-control" id="fechaInicio">
+          <!-- Aquí puedes agregar validación si es necesario -->
+        </div>
+        <!-- Fecha de fin -->
+        <div class="form-group">
+          <label for="fechaFin">Fecha de Fin</label>
+          <input formControlName="fechaFin" type="date" class="form-control" id="fechaFin">
+          <!-- Aquí puedes agregar validación si es necesario -->
+        </div>
+        <!-- Frecuencia -->
+        <div class="form-group">
+          <label for="frecuencia">Frecuencia</label>
+          <input formControlName="frecuencia" type="text" class="form-control" id="frecuencia" placeholder="Frecuencia del tratamiento">
+          <!-- Aquí puedes agregar validación si es necesario -->
+        </div>
+        <!-- Medicamento -->
+        <div class="form-group">
+          <label for="medicamento">Medicamento</label>
+          <input formControlName="medicamento" type="text" class="form-control" id="medicamento" placeholder="Medicamento prescrito">
+          <!-- Aquí puedes agregar validación si es necesario -->
+        </div>
+    </div>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!datosForm.valid">Enviar</button>
   </form>
