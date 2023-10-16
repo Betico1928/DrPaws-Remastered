@@ -13,14 +13,6 @@ export class TratamientoService
   private apiUrl = 'http://localhost:8080/tratamientos';
 
   addTratamiento(tratamiento: Tratamiento) {
-    alert(tratamiento.nombre)
-    alert(tratamiento.descripcion)
-    alert(tratamiento.frecuencia)
-    alert(tratamiento.fechaInicio)
-    alert(tratamiento.fechaFin)
-    alert("Med " + tratamiento.idMedicamento)
-    alert("Mas " + tratamiento.idMascota)
-    alert("vet " + tratamiento.idVeterinario)
     return this.http.post(`${this.apiUrl}/add`, tratamiento);
   }
 }

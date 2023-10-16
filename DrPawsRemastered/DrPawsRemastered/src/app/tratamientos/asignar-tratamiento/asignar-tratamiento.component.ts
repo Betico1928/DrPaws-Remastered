@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {VeterinarioService} from "../../service/veterinario/veterinario.service";
 import {MascotaService} from "../../service/mascota/mascota-service.service";
 import {Tratamiento} from "../../model/tratamiento";
 import {TratamientoService} from "../../service/tratamiento/tratamiento.service";
+import {Medicamento} from "../../model/medicamento";
+import {MedicamentoService} from "../../service/medicamento/medicamento.service";
 
 @Component({
   selector: 'app-asignar-tratamiento',
@@ -21,13 +23,18 @@ export class AsignarTratamientoComponent implements OnInit
   nombreVeterinario!: string;
   especialidadVeterinario!: string;
 
+  // Lista de medicamentos:
+  medicamentos!: Medicamento[];
+
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
+    private router: Router,
 
     private mascotaService : MascotaService,
     private veterinarioService : VeterinarioService,
-    private tratamientoService : TratamientoService
+    private tratamientoService : TratamientoService,
+    private medicamentoService : MedicamentoService
   ) {
     this.datosForm = this.fb.group({
       nombreMascota: ['', Validators.required],
@@ -39,7 +46,7 @@ export class AsignarTratamientoComponent implements OnInit
       nombreTratamiento: ['', Validators.required],
       descripcion: ['', Validators.required],
       frecuencia: ['', Validators.required],
-      medicamento: ['', Validators.required],
+      medicamento: [''],
       fechaInicio: ['', Validators.required],
       fechaFin: ['', Validators.required]
     });
@@ -48,6 +55,14 @@ export class AsignarTratamientoComponent implements OnInit
   ngOnInit() {
     this.veterinarioId = +this.route.snapshot.paramMap.get('idVeterinario')!;
     this.mascotaId = +this.route.snapshot.paramMap.get('idMascota')!;
+
+    // Extraer los medicamentos para ponerlos en la lista desplegable:
+    this.medicamentoService.getAllMedicamentos().subscribe(medicamentosEntrantes => {
+      this.medicamentos = medicamentosEntrantes;
+      console.log('Medicamentos obtenidos:', medicamentosEntrantes);
+    }, error => {
+      console.error('Error al obtener los medicamentos:', error);
+    });
 
     // Extraer los datos de mascota y veterinario:
     this.veterinarioService.getVeterinario(this.veterinarioId).subscribe(veterinario => {
@@ -64,11 +79,6 @@ export class AsignarTratamientoComponent implements OnInit
         enfermedad : mascota.enfermedad
       });
     });
-
-    // Extraer los medicamentos para ponerlos en la lista desplegable:
-    this.tratamientoService.getMedicamentos().subscribe(medicamentos => {
-      this.medicamentos = medicamentos;
-    }
   }
 
   onSubmit() {
@@ -79,7 +89,7 @@ export class AsignarTratamientoComponent implements OnInit
         descripcion: this.datosForm.get('descripcion')!.value,
         fechaInicio: this.datosForm.get('fechaInicio')!.value,
         fechaFin: this.datosForm.get('fechaFin')!.value,
-        costo: 0,
+        costo: 5453.23,
         frecuencia: this.datosForm.get('frecuencia')!.value,
         idMascota: this.mascotaId,
         idVeterinario: this.veterinarioId,
@@ -89,9 +99,10 @@ export class AsignarTratamientoComponent implements OnInit
       this.tratamientoService.addTratamiento(tratamiento).subscribe(response => {
         alert("Tratamiento generado exitosamente.");
         console.log('Tratamiento generado exitosamente.', response);
+        this.router.navigate([`/login-administrativo/dashboard-veterinarios/${this.veterinarioId}`]);
       }, error => {
         // Maneja los errores que puedan surgir
-        console.error('Error al generado el tratamiento:', error);
+        console.error('Error al generado el tratamiento: ', error);
       });
     }
   }

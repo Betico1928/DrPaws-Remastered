@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/Update-Mascota/stylesUpdateMascota.css">
   <title>Dr. Paws - Asignación de Tratamiento</title>
 
   <!-- Font  -->
@@ -147,11 +146,11 @@
         <!-- Medicamento -->
         <div class="form-group">
           <label for="medicamento">Medicamento</label>
-          <input formControlName="medicamento" type="text" class="form-control" id="medicamento" placeholder="ID del medicamento">
-          <div *ngIf="datosForm.controls['medicamento'].invalid && (datosForm.controls['medicamento'].dirty || datosForm.controls['medicamento'].touched)"
-               class="error">
-            El medicamento es requerido.
-          </div>
+          <select formControlName="medicamento" id="medicamento" class="form-control">
+            <option *ngFor="let medicamento of medicamentos" [value]="medicamento.id">
+              {{ medicamento.nombre }}
+            </option>
+          </select>
         </div>
     </div>
     </div>
