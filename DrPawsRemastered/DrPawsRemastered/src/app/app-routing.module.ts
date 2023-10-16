@@ -14,6 +14,7 @@ import {DashboardUsuarioComponent} from "./dashboards/dashboard-usuario/dashboar
 import {DashboardAdministradorComponent} from "./dashboards/dashboard-administrador/dashboard-administrador.component";
 import {CrearVeterinarioComponent} from "./cruds/crud-veterinario/crear-veterinario/crear-veterinario.component";
 import {ModificarVeterinarioComponent} from "./cruds/crud-veterinario/modificar-veterinario/modificar-veterinario.component";
+import {VisualizarVeterinarioComponent} from "./cruds/crud-veterinario/visualizar-veterinario/visualizar-veterinario.component";
 
 const routes: Routes = [
   // Default route
@@ -33,6 +34,7 @@ const routes: Routes = [
 
   // CRUD Veterinarios:
   {path: 'login-administrativo/dashboard-administrador/crear-veterinario', component: CrearVeterinarioComponent},
+  {path: 'visualizar-veterinario/:id', component: VisualizarVeterinarioComponent},
   {path: 'login-administrativo/dashboard-administrador/modificar-veterinario/:id', component: ModificarVeterinarioComponent},
 
   // CRUD Mascotas:
