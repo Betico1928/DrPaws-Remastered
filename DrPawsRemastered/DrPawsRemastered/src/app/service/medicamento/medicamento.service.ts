@@ -10,10 +10,10 @@ export class MedicamentoService
 {
   constructor(private http : HttpClient) { }
 
-  private apiUrl = 'http://localhost:8080/medicamentos/all';
+  private apiUrl = 'http://localhost:8080/medicamentos';
 
   getAllMedicamentos(): Observable<Medicamento[]>
   {
-    return this.http.get<Medicamento[]>(`${this.apiUrl}`);
+    return this.http.get<Medicamento[]>(`${this.apiUrl}/all`);
   }
 }

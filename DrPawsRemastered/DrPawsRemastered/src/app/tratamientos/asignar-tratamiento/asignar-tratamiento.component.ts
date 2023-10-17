@@ -58,8 +58,12 @@ export class AsignarTratamientoComponent implements OnInit
 
     // Extraer los medicamentos para ponerlos en la lista desplegable:
     this.medicamentoService.getAllMedicamentos().subscribe(medicamentosEntrantes => {
-      this.medicamentos = medicamentosEntrantes;
+
+      // Revisa a ver si hay unidades disponibles:
+      medicamentosEntrantes = medicamentosEntrantes.filter(medicamento => medicamento.unidadesDisponibles > 0);
+
       console.log('Medicamentos obtenidos:', medicamentosEntrantes);
+      
     }, error => {
       console.error('Error al obtener los medicamentos:', error);
     });
