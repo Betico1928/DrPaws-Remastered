@@ -1,1 +1,37 @@
 <p>estadisticas-de-la-veterinaria works!</p>
+<div class="admin-dashboard">
+
+  <h2>Panel de Administrador</h2>
+
+  <div class="statistics">
+    <h3>Estadísticas Generales:</h3>
+    <p><strong>Total de mascotas:</strong> {{ totalMascotas! }}</p>
+    <p><strong>Total de mascotas activas:</strong> {{ totalMascotasActivas! }}</p>
+    <p><strong>Cantidad de veterinarios activos:</strong> {{ cantidadVeterinariosActivos! }}</p>
+    <p><strong>Cantidad de veterinarios inactivos:</strong> {{ cantidadVeterinariosInactivos! }}</p>
+    <p><strong>Tratamientos administrados en el último mes:</strong> {{ tratamientosUltimoMes! }}</p>
+    <p><strong>Ventas totales:</strong> {{ ventasTotales! | json }}</p>
+    <p><strong>Ganancias:</strong> {{ ganancias! | json }}</p>
+  </div>
+
+  <div class="medications">
+    <h3>Medicamentos suministrados en el último mes:</h3>
+    <ul>
+      <li *ngFor="let medicamento of medicamentosUltimoMes">
+        <strong>Medicamento:</strong> {{ medicamento[0] }},
+        <strong>Cantidad:</strong> {{ medicamento[1] }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="top-treatments">
+    <h3>Top 3 tratamientos más vendidos:</h3>
+    <ul>
+      <li *ngFor="let tratamiento of top3Tratamientos">
+        <strong>Tratamiento:</strong> {{ tratamiento[0] }},
+        <strong>Cantidad:</strong> {{ tratamiento[1] }}
+      </li>
+    </ul>
+  </div>
+
+</div>
