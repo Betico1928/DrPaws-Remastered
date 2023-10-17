@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EstadisticasService} from "../../../service/estadisticas/estadisticas.service";
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-estadisticas-de-la-veterinaria',
@@ -21,7 +22,8 @@ export class EstadisticasDeLaVeterinariaComponent implements OnInit
 
   constructor(private estadisticasService: EstadisticasService) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     // Obtener el total de mascotas
     this.estadisticasService.getTotalMascotas().subscribe(data => {
       this.totalMascotas = data;
@@ -50,6 +52,8 @@ export class EstadisticasDeLaVeterinariaComponent implements OnInit
     // Obtener una tabla de los medicamentos y su cantidad suministrada el último mes
     this.estadisticasService.countTratamientosPorTipoMedicamentoAdminsitradoEnUltimoMes().subscribe(data => {
       this.medicamentosUltimoMes = data;
+      console.log(data)
+      this.crearPieDiagram()
     });
 
     // Obtener las tres drogas más vendidas en los tratamientos
@@ -66,6 +70,58 @@ export class EstadisticasDeLaVeterinariaComponent implements OnInit
     this.estadisticasService.computeProfit().subscribe(data => {
       this.ganancias = data;
     });
+
+
   }
+
+  crearPieDiagram() {
+    const ctx = document.getElementById('myChart') as HTMLCanvasElement;
+    const myChart = new Chart(ctx, {
+      type: 'polarArea',
+      data: {
+        labels: this.medicamentosUltimoMes.map((item: any) => item[0]),
+        datasets: [{
+          data: this.medicamentosUltimoMes.map((item: any) => item[1]),
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(201, 203, 207, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            // ... y otros colores si tienes más medicamentos
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(201, 203, 207, 1)',
+            'rgba(54, 162, 235, 1)',
+            // ... y otros bordes si tienes más medicamentos
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            display: false // Ocultar las etiquetas (legend) del gráfico
+          },
+          tooltip: {
+            callbacks: {
+              title: function(tooltipItem: any) {
+                return tooltipItem[0].label;
+              },
+              label: function(tooltipItem: any) {
+                return 'Cantidad: ' + tooltipItem.formattedValue;
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+
+
 }
 

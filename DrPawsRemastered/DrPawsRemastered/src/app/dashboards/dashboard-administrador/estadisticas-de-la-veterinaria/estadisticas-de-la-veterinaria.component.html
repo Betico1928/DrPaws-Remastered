@@ -1,29 +1,67 @@
-<p>estadisticas-de-la-veterinaria works!</p>
-<div class="admin-dashboard">
+<!DOCTYPE html>
+<html>
 
-  <h2>Panel de Administrador</h2>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Paws - Estadísticas de la veterinaria</title>
 
-  <div class="statistics">
-    <h3>Estadísticas Generales:</h3>
+  <!-- Font  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+  <!-- Fin del Font  -->
+
+  <!-- Footer-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <!-- Fin del Footer-->
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+  <a [routerLink]="['/home']"  class="logo">DR.PAWS</a>
+  <ul>
+    <li><a [routerLink]="['/home']" class="active">Home</a></li>
+    <li><a [routerLink]="['/porque-nosotros']">About</a></li>
+    <li><a [routerLink]="['/login-administrativo']">Login Administrativo</a></li>
+    <li><a [routerLink]="['/login-usuario']">Login Usuario</a></li>
+    <li><a [routerLink]="['/contacto']">Contact</a></li>
+  </ul>
+</header>
+<!-- Fin del Header -->
+<h2>Panel de Administrador</h2>
+<div class="statistics">
+  <h3>Estadísticas Generales:</h3>
+  <div class="stats-card">
     <p><strong>Total de mascotas:</strong> {{ totalMascotas! }}</p>
+  </div>
+  <div class="stats-card">
     <p><strong>Total de mascotas activas:</strong> {{ totalMascotasActivas! }}</p>
+  </div>
+  <div class="stats-card">
     <p><strong>Cantidad de veterinarios activos:</strong> {{ cantidadVeterinariosActivos! }}</p>
+  </div>
+  <div class="stats-card">
     <p><strong>Cantidad de veterinarios inactivos:</strong> {{ cantidadVeterinariosInactivos! }}</p>
+  </div>
+  <div class="stats-card">
     <p><strong>Tratamientos administrados en el último mes:</strong> {{ tratamientosUltimoMes! }}</p>
+  </div>
+  <div class="stats-card">
     <p><strong>Ventas totales:</strong> {{ ventasTotales! | json }}</p>
+  </div>
+  <div class="stats-card">
     <p><strong>Ganancias:</strong> {{ ganancias! | json }}</p>
   </div>
+</div>
 
-  <div class="medications">
-    <h3>Medicamentos suministrados en el último mes:</h3>
-    <ul>
-      <li *ngFor="let medicamento of medicamentosUltimoMes">
-        <strong>Medicamento:</strong> {{ medicamento[0] }},
-        <strong>Cantidad:</strong> {{ medicamento[1] }}
-      </li>
-    </ul>
-  </div>
+<canvas id="myChart"></canvas>
 
+<div class="admin-dashboard">
   <div class="top-treatments">
     <h3>Top 3 tratamientos más vendidos:</h3>
     <ul>
@@ -33,5 +71,33 @@
       </li>
     </ul>
   </div>
-
 </div>
+
+
+<!-- Footer -->    <!-- Footer-->
+<footer class="vet-footer">
+  <div class="footer-content">
+    <div class="social-media">
+      <a href="#" class="social-icon"><i class="fab fa-twitter" style="color: #0099DD;"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-youtube" style="color: #fa2828;"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram" style="color: #FF9944;"></i></a>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="/contacto">Contacto</a>
+      <a href="/porqueNosotros">Acerca de</a>
+      <a href="/porqueNosotros/testimonios">Testimonios</a>
+    </div>
+
+    <div class="footer-contact">
+      <p>Teléfono: (123) 456-7890</p>
+      <p>Email: woof-woof@veterinariadrpaws.com</p>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p>&copy; 2023 Veterinaria Dr. Paws - Todos los derechos reservados.</p>
+  </div>
+</footer>
+<!-- Fin del Footer-->
