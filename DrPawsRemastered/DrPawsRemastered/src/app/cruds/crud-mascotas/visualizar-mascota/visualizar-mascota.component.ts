@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MascotaService} from "../../../service/mascota/mascota-service.service";
 import {Mascota} from "../../../model/mascota";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Tratamiento} from "../../../model/tratamiento";
 
 @Component({
   selector: 'app-visualizar-mascota',
@@ -12,6 +13,8 @@ export class VisualizarMascotaComponent implements OnInit
 {
   searchedMascota?: Mascota;
   id!: number;
+  tratamientos: Tratamiento[] = [];
+
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +24,7 @@ export class VisualizarMascotaComponent implements OnInit
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('id')!;
     this.loadMascota();
+    this.loadTratamientos();
   }
 
   private loadMascota(): void {
@@ -29,4 +33,12 @@ export class VisualizarMascotaComponent implements OnInit
       error => alert("Lo sentimos, no pudimos cargar a la mascota")
     );
   }
+
+  private loadTratamientos(): void {
+    this.mascotaService.getTratamientosByMascotaId(this.id).subscribe(
+      tratamientos => this.tratamientos = tratamientos,
+      error => alert("Lo sentimos, no pudimos cargar los tratamientos")
+    );
+  }
+
 }

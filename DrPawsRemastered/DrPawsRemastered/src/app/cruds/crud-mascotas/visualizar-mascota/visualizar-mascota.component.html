@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/Ver-Mascota/stylesVerMascota.css">
   <title>Dr. Paws - Información de mascota</title>
 
   <!-- Font  -->
@@ -75,11 +74,20 @@
   </ul>
 </section>
 
-
-
-
-
-
+<!-- Sección de tratamientos administrados -->
+<section class="tratamientos-section">
+  <h3>Tratamientos administrados</h3>
+  <div class="tratamiento-cards">
+    <div *ngFor="let tratamiento of tratamientos" class="tratamiento-card">
+      <h4>{{ tratamiento.nombre }}</h4>
+      <p><strong>Descripción:</strong> {{ tratamiento.descripcion }}</p>
+      <p><strong>Fecha de inicio:</strong> {{ tratamiento.fechaInicio | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Fecha de fin:</strong> {{ tratamiento.fechaFin | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Costo:</strong> ${{ tratamiento.costo }}</p>
+      <p><strong>Frecuencia:</strong> {{ tratamiento.frecuencia }}</p>
+    </div>
+  </div>
+</section>
 
 
 

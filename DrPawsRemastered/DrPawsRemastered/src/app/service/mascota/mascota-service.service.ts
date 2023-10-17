@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Mascota} from "../../model/mascota";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Tratamiento} from "../../model/tratamiento";
 
 @Injectable({
   providedIn: 'root'
@@ -50,4 +51,12 @@ export class MascotaService
   {
     return this.http.delete(`${this.apiUrl}/delete/${id}`);
   }
+
+  // ----------------------------------------------------------------------------------------------------------------
+
+  // Buscar tratamientos
+  getTratamientosByMascotaId(id: number): Observable<Tratamiento[]> {
+    return this.http.get<Tratamiento[]>(`${this.apiUrl}/tratamientos/${id}`);
+  }
+
 }
