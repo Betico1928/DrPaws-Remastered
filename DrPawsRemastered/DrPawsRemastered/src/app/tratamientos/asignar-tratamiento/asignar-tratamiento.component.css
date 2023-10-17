@@ -109,15 +109,14 @@ body::before {
 
 .form-control,
 input[type="date"] {
-  width: 250px;
   height: 35px;
 }
 
-
-.form-control
-{
-  width: 600px;
+.form-control {
+  height: 35px;
+  width: 250px;
 }
+
 
 
 
