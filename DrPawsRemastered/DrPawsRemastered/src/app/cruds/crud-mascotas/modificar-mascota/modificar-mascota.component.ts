@@ -49,7 +49,7 @@ export class ModificarMascotaComponent implements OnInit {
     if (this.mascotaForm.valid)
     {
       const mascota: Mascota = this.mascotaForm.value;
-      mascota.id = this.id;
+      mascota.id = this.mascotaId;
 
       // Llama al método para actualizar la mascota
       this.mascotaService.updateMascota(this.mascotaId, mascota).subscribe(response => {
