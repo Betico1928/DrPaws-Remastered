@@ -62,8 +62,10 @@ export class AsignarTratamientoComponent implements OnInit
       // Revisa a ver si hay unidades disponibles:
       medicamentosEntrantes = medicamentosEntrantes.filter(medicamento => medicamento.unidadesDisponibles > 0);
 
-      console.log('Medicamentos obtenidos:', medicamentosEntrantes);
+      // Cargar los medicamentos en la lista desplegable:
+      this.medicamentos = medicamentosEntrantes;
       
+      console.log('Medicamentos obtenidos:', medicamentosEntrantes);
     }, error => {
       console.error('Error al obtener los medicamentos:', error);
     });
