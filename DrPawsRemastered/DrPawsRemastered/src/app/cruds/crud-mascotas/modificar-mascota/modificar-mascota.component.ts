@@ -11,6 +11,9 @@ import {Mascota} from "../../../model/mascota";
 })
 
 export class ModificarMascotaComponent implements OnInit {
+  veterinarioId!: number;
+  mascotaId!: number;
+
   mascotaForm!: FormGroup;
   id!: number;
 
@@ -24,7 +27,8 @@ export class ModificarMascotaComponent implements OnInit {
 
   ngOnInit(): void {
     // Obtener ID desde la ruta
-    this.id = +this.route.snapshot.paramMap.get('id')!;
+    this.veterinarioId = +this.route.snapshot.paramMap.get('idVeterinario')!;
+    this.mascotaId = +this.route.snapshot.paramMap.get('idMascota')!;
 
     // Crear el formulario
     this.mascotaForm = this.fb.group({
@@ -36,7 +40,7 @@ export class ModificarMascotaComponent implements OnInit {
     });
 
     // Cargar datos iniciales de la mascota
-    this.mascotaService.getMascota(this.id).subscribe(mascota => {
+    this.mascotaService.getMascota(this.mascotaId).subscribe(mascota => {
       this.mascotaForm.patchValue(mascota);
     });
   }
@@ -48,9 +52,9 @@ export class ModificarMascotaComponent implements OnInit {
       mascota.id = this.id;
 
       // Llama al método para actualizar la mascota
-      this.mascotaService.updateMascota(mascota.id, mascota).subscribe(response => {
+      this.mascotaService.updateMascota(this.mascotaId, mascota).subscribe(response => {
         alert('Mascota actualizada exitosamente!');
-        this.router.navigate(['login-administrativo/dashboard-veterinarios']);
+          this.router.navigate([`/login-administrativo/dashboard-veterinarios/${this.veterinarioId}`]);
         },
         error => {
           alert('Ocurrió un error al actualizar la mascota.');

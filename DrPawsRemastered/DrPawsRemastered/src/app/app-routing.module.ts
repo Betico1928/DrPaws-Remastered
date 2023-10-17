@@ -43,7 +43,7 @@ const routes: Routes = [
   // CRUD Mascotas:
   {path: 'login-administrativo/dashboard-veterinarios/crear-mascota', component: CrearMascotaComponent},
   {path: 'visualizar-mascota/:id', component: VisualizarMascotaComponent},
-  {path: 'login-administrativo/dashboard-veterinarios/modificar-mascota/:id', component: ModificarMascotaComponent},
+  {path: 'login-administrativo/dashboard-veterinarios/modificar-mascota/:idMascota/:idVeterinario', component: ModificarMascotaComponent},
 
 
   // Error:

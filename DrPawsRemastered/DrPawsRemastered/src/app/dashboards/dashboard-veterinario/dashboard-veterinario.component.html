@@ -73,7 +73,7 @@
           <a class="btn btn-primary" [routerLink]="['/visualizar-mascota', mascota.id]">
             <i class="fas fa-eye"></i>
           </a>
-          <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-veterinarios/modificar-mascota', mascota.id]">
+          <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-veterinarios/modificar-mascota', mascota.id, veterinario?.id]">
             <i class="fas fa-pencil-alt"></i>
           </a>
           <a class="btn btn-danger" (click)="deleteMascota(mascota.id)">
