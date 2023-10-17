@@ -46,7 +46,7 @@ const routes: Routes = [
   {path: 'login-administrativo/dashboard-administrador/modificar-veterinario/:id', component: ModificarVeterinarioComponent},
 
   // CRUD Mascotas:
-  {path: 'login-administrativo/dashboard-veterinarios/crear-mascota', component: CrearMascotaComponent},
+  {path: 'login-administrativo/dashboard-veterinarios/crear-mascota/:idVeterinario', component: CrearMascotaComponent},
   {path: 'visualizar-mascota/:id', component: VisualizarMascotaComponent},
   {path: 'login-administrativo/dashboard-veterinarios/modificar-mascota/:idMascota/:idVeterinario', component: ModificarMascotaComponent},
 

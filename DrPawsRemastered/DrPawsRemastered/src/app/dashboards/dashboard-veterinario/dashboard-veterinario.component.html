@@ -87,7 +87,7 @@
     </tbody>
   </table>
   <div class="btn-container">
-    <a class="btn btn-info" routerLink="/login-administrativo/dashboard-veterinarios/crear-mascota">
+    <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-veterinarios/crear-mascota', veterinario?.id]">
       <i class="fas fa-plus"></i>
     </a>
   </div>

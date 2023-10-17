@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MascotaService} from "../../../service/mascota/mascota-service.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-crear-mascota',
@@ -11,14 +11,21 @@ import {Router} from "@angular/router";
 export class CrearMascotaComponent implements OnInit
 {
   mascotaForm!: FormGroup;
+  veterinarioId!: number;
 
   constructor(
     private formBuilder: FormBuilder,
     private mascotaService: MascotaService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+    // Obtener ID desde la ruta
+    this.veterinarioId = +this.route.snapshot.paramMap.get('idVeterinario')!;
+    alert(this.veterinarioId);
+
     this.initForm();
   }
 
@@ -37,7 +44,7 @@ export class CrearMascotaComponent implements OnInit
       this.mascotaService.createMascota(this.mascotaForm.value).subscribe(
         data => {
           alert('Mascota creada exitosamente!');
-          this.router.navigate(['login-administrativo/dashboard-veterinarios']);
+          this.router.navigate([`/login-administrativo/dashboard-veterinarios/${this.veterinarioId}`]);
         },
         error => {
           alert('Ocurrió un error al crear la mascota.');
