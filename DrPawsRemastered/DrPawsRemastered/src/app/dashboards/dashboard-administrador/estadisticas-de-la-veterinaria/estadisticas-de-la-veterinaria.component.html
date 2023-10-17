@@ -33,35 +33,20 @@
   </ul>
 </header>
 <!-- Fin del Header -->
-<h2>Panel de Administrador</h2>
-<div class="statistics">
-  <h3>Estadísticas Generales:</h3>
-  <div class="stats-card">
+<div class="admin-dashboard">
+  <h2 class="titulo">Panel de Administrador</h2>
+
+  <div class="statistics">
+    <h3>Estadísticas Generales:</h3>
     <p><strong>Total de mascotas:</strong> {{ totalMascotas! }}</p>
-  </div>
-  <div class="stats-card">
     <p><strong>Total de mascotas activas:</strong> {{ totalMascotasActivas! }}</p>
-  </div>
-  <div class="stats-card">
     <p><strong>Cantidad de veterinarios activos:</strong> {{ cantidadVeterinariosActivos! }}</p>
-  </div>
-  <div class="stats-card">
     <p><strong>Cantidad de veterinarios inactivos:</strong> {{ cantidadVeterinariosInactivos! }}</p>
-  </div>
-  <div class="stats-card">
     <p><strong>Tratamientos administrados en el último mes:</strong> {{ tratamientosUltimoMes! }}</p>
-  </div>
-  <div class="stats-card">
     <p><strong>Ventas totales:</strong> {{ ventasTotales! | json }}</p>
-  </div>
-  <div class="stats-card">
     <p><strong>Ganancias:</strong> {{ ganancias! | json }}</p>
   </div>
-</div>
 
-<canvas id="myChart"></canvas>
-
-<div class="admin-dashboard">
   <div class="top-treatments">
     <h3>Top 3 tratamientos más vendidos:</h3>
     <ul>
@@ -71,8 +56,12 @@
       </li>
     </ul>
   </div>
-</div>
 
+  <div class="top-treatments">
+    <canvas id="myChart"></canvas>
+  </div>
+
+</div>
 
 <!-- Footer -->    <!-- Footer-->
 <footer class="vet-footer">
