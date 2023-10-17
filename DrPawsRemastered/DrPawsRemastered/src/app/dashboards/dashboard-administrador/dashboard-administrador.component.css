@@ -62,11 +62,6 @@ header ul li a:hover,
 
 /* Fin de menu*/
 
-
-
-
-
-
 .table-container
 {
   flex-direction: column;
@@ -181,14 +176,6 @@ header ul li a:hover,
   transition: background-color 0.3s ease;
 }
 
-
-
-
-
-
-
-
-
 body::before {
   content: "";
   position: fixed;  /* Se asegura de que el cuadrado quede fijo y ocupe toda la pantalla */
@@ -284,15 +271,35 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+.statistics-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0; /* Más espacio arriba y abajo del botón */
+}
 
+.btn-statistics {
+  background-color: #026E81;
+  color: #fff;
+  padding: 20px 40px; /* Mayor espaciado interno para hacer el botón más grande */
+  border-radius: 30px; /* Bordes más redondeados */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px; /* Tamaño de texto más grande */
+  transition: background-color 0.3s ease;
+  display: flex; /* Para alinear el ícono y el texto verticalmente */
+  flex-direction: column; /* Para poner el ícono arriba del texto */
+  align-items: center; /* Centrar el ícono y el texto horizontalmente */
+  gap: 10px; /* Espacio entre el ícono y el texto */
+}
 
+.btn-statistics:hover {
+  background-color: #014d5c;
+}
 
-
-
-
-
-
-
+.btn-statistics i {
+  font-size: 50px; /* Hacer el ícono más grande */
+}
 
 
 
