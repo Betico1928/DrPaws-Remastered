@@ -24,7 +24,6 @@ export class CrearMascotaComponent implements OnInit
   {
     // Obtener ID desde la ruta
     this.veterinarioId = +this.route.snapshot.paramMap.get('idVeterinario')!;
-    alert(this.veterinarioId);
 
     this.initForm();
   }

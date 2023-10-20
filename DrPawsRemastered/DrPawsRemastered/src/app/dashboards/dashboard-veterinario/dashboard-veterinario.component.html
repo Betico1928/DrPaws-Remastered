@@ -43,9 +43,18 @@
 </div>
 
 <div class="table-container">
-  <p class="titulo">
-    Mascotas de la veterinaria Dr. Paws
-  </p>
+  <div class="headerTable-container">
+    <p class="titulo">
+      Mascotas de la veterinaria Dr. Paws
+    </p>
+
+    <div class="btn-container">
+      <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-veterinarios/crear-mascota', veterinario?.id]">
+        <i class="fas fa-plus">   Agregar mascota</i>
+      </a>
+    </div>
+
+  </div>
 
   <table class="table table-success table-striped center">
     <thead>
@@ -86,11 +95,6 @@
     </tr>
     </tbody>
   </table>
-  <div class="btn-container">
-    <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-veterinarios/crear-mascota', veterinario?.id]">
-      <i class="fas fa-plus"></i>
-    </a>
-  </div>
 </div>
 
 
