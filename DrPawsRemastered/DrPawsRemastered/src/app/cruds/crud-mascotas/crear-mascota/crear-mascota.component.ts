@@ -53,7 +53,7 @@ export class CrearMascotaComponent implements OnInit
 
   onSubmit(): void
   {
-// Asegurarse de que la cédula sea tratada como un string
+    // Asegurarse de que la cédula sea tratada como un string
     const cedulaIngresada = this.mascotaForm.get('cedulaDueno')?.value.toString();
 
     // Comprobar si la cédula ingresada o seleccionada existe en la lista de usuarios
@@ -62,6 +62,11 @@ export class CrearMascotaComponent implements OnInit
     if (!usuarioExistente) {
       alert('ALERTA - Este dueño no se encuentra inscrito en la base de datos.');
       return;  // Salimos temprano de la función para no seguir con el envío
+    }
+    else
+    {
+      // Si el usuario existe, entonces asignamos el ID del usuario a la mascota
+      this.mascotaForm.value.usuario = this.usuarios.find(usuario => usuario.cedula === cedulaIngresada);
     }
 
     if (this.mascotaForm.valid)
