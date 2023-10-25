@@ -22,6 +22,7 @@ import { ModificarVeterinarioComponent } from './cruds/crud-veterinario/modifica
 import { VisualizarVeterinarioComponent } from './cruds/crud-veterinario/visualizar-veterinario/visualizar-veterinario.component';
 import { AsignarTratamientoComponent } from './tratamientos/asignar-tratamiento/asignar-tratamiento.component';
 import { EstadisticasDeLaVeterinariaComponent } from './dashboards/dashboard-administrador/estadisticas-de-la-veterinaria/estadisticas-de-la-veterinaria.component';
+import { CrearUsuarioComponent } from './cruds/crud-usuario/crear-usuario/crear-usuario.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { EstadisticasDeLaVeterinariaComponent } from './dashboards/dashboard-adm
     ModificarVeterinarioComponent,
     VisualizarVeterinarioComponent,
     AsignarTratamientoComponent,
-    EstadisticasDeLaVeterinariaComponent
+    EstadisticasDeLaVeterinariaComponent,
+    CrearUsuarioComponent
   ],
   imports: [
     BrowserModule,
