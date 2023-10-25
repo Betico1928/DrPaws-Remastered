@@ -22,4 +22,10 @@ export class UsuarioService
   {
     return this.http.get<Mascota[]>(`${this.baseUrl}/find/${id}/mascotas`);
   }
+
+  getAllUsuarios(): Observable<Usuario[]>
+  {
+    alert("getAllUsuarios() en usuario.service.ts")
+    return this.http.get<Usuario[]>(`${this.baseUrl}/all`);
+  }
 }

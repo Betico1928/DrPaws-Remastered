@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MascotaService} from "../../../service/mascota/mascota-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {UsuarioService} from "../../../service/usuario/usuario.service";
+import {Usuario} from "../../../model/usuario";
 
 @Component({
   selector: 'app-crear-mascota',
@@ -13,9 +15,13 @@ export class CrearMascotaComponent implements OnInit
   mascotaForm!: FormGroup;
   veterinarioId!: number;
 
+  // Lista de Usuarios:
+  usuarios!: Usuario[];
+
   constructor(
     private formBuilder: FormBuilder,
     private mascotaService: MascotaService,
+    private usuarioService: UsuarioService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -25,6 +31,12 @@ export class CrearMascotaComponent implements OnInit
     // Obtener ID desde la ruta
     this.veterinarioId = +this.route.snapshot.paramMap.get('idVeterinario')!;
 
+    // Extraer a todos los dueños de mascotas para ponerlos en la lista desplegable:
+    this.usuarioService.getAllUsuarios().subscribe(usuariosEntrantes => {
+      this.usuarios = usuariosEntrantes;
+
+      console.log(usuariosEntrantes)
+    });
     this.initForm();
   }
 
@@ -39,7 +51,8 @@ export class CrearMascotaComponent implements OnInit
   }
 
   onSubmit(): void {
-    if (this.mascotaForm.valid) {
+    if (this.mascotaForm.valid)
+    {
       this.mascotaService.createMascota(this.mascotaForm.value).subscribe(
         data => {
           alert('Mascota creada exitosamente!');
