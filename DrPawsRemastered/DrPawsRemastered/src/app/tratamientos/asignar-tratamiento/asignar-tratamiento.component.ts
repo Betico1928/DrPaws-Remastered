@@ -64,7 +64,7 @@ export class AsignarTratamientoComponent implements OnInit
 
       // Cargar los medicamentos en la lista desplegable:
       this.medicamentos = medicamentosEntrantes;
-      
+
       console.log('Medicamentos obtenidos:', medicamentosEntrantes);
     }, error => {
       console.error('Error al obtener los medicamentos:', error);
@@ -88,7 +88,8 @@ export class AsignarTratamientoComponent implements OnInit
   }
 
   onSubmit() {
-    if (this.datosForm.valid) {
+    if (this.datosForm.valid)
+    {
       const tratamiento: Tratamiento = {
         id: 0,
         nombre: this.datosForm.get('nombreTratamiento')!.value,
@@ -102,7 +103,7 @@ export class AsignarTratamientoComponent implements OnInit
         idMedicamento: this.datosForm.get('medicamento')!.value
       }
 
-      this.tratamientoService.addTratamiento(tratamiento).subscribe(response => {
+      this.tratamientoService.createTratamiento(tratamiento, this.mascotaId, this.datosForm.get('medicamento')!.value, this.veterinarioId).subscribe(response => {
         alert("Tratamiento generado exitosamente.");
         console.log('Tratamiento generado exitosamente.', response);
         this.router.navigate([`/login-administrativo/dashboard-veterinarios/${this.veterinarioId}`]);
