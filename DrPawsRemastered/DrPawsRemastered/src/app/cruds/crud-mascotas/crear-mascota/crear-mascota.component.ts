@@ -46,7 +46,8 @@ export class CrearMascotaComponent implements OnInit
       raza: ['', Validators.required],
       edad: ['', [Validators.required, Validators.min(0)]],
       peso: ['', [Validators.required, Validators.pattern(/^\d*(\.\d{0,2})?$/)]],
-      enfermedad: ['', Validators.required]
+      enfermedad: ['', Validators.required],
+      cedulaDueno: ['', Validators.required]
     });
   }
 
