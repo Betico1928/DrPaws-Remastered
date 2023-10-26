@@ -18,11 +18,6 @@ export class MascotaService
   // Create
   createMascota(mascota: Mascota): Observable<Mascota>
   {
-    alert(mascota.usuario?.id)
-    alert(mascota.usuario?.cedula)
-    alert(mascota.usuario?.nombre)
-    alert(mascota.usuario?.correo)
-    alert(mascota.usuario?.celular)
     return this.http.post<Mascota>(`${this.apiUrl}/agregar`, mascota);
   }
 

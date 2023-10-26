@@ -28,7 +28,7 @@
     <li><a [routerLink]="['/home']" class="active">Home</a></li>
     <li><a [routerLink]="['/porque-nosotros']">About</a></li>
     <li><a [routerLink]="['/login-administrativo']">Login Administrativo</a></li>
-    <li><a [routerLink]="['/login-usuario']">Login Usuario</a></li>
+    <li><a id="botonLoginUsuario" [routerLink]="['/login-usuario']">Login Usuario</a></li>
     <li><a [routerLink]="['/contacto']">Contact</a></li>
   </ul>
 </header>
@@ -49,13 +49,13 @@
     </p>
 
     <div class="btn-container">
-      <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-veterinarios/crear-mascota', veterinario?.id]">
+      <a class="btn btn-info" id="AgregarMascota" [routerLink]="['/login-administrativo/dashboard-veterinarios/crear-mascota', veterinario?.id]">
         <i class="fas fa-plus">   Agregar mascota</i>
       </a>
     </div>
 
     <div class="btn-container">
-      <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-veterinarios/crear-usuario', veterinario?.id]">
+      <a class="btn btn-info" id="AgregarUsuario" [routerLink]="['/login-administrativo/dashboard-veterinarios/crear-usuario', veterinario?.id]">
         <i class="fas fa-plus">   Agregar Usuario</i>
       </a>
     </div>
@@ -76,7 +76,7 @@
     <tbody>
     <!-- Angular loop to iterate over mascotas -->
     <tr *ngFor="let mascota of listaDeMascotas; let i = index">
-      <td>{{ i + 1 }}</td>
+      <td class="Numero-de-mascotas-cargadas">{{ i + 1 }}</td>
       <td>{{ mascota.nombre }}</td>
       <td>{{ mascota.raza }}</td>
       <td>{{ mascota.edad }} años</td>
