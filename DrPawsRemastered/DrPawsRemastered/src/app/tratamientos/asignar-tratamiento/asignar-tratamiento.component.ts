@@ -87,23 +87,42 @@ export class AsignarTratamientoComponent implements OnInit
     });
   }
 
-  onSubmit() {
+  onSubmit()
+  {
     if (this.datosForm.valid)
     {
+      // Calcular el costo del tratamiento:
+      // Convertir idMedicamentoSeleccionado a número
+      const idMedicamentoNum = Number(this.datosForm.get('medicamento')!.value);
+
+      // Buscar el medicamento seleccionado en la lista
+      const medicamentoSeleccionado = this.medicamentos.find(medicamento => medicamento.id === idMedicamentoNum);
+
+      // Obtener el precio del medicamento seleccionado
+      let precioMedicamento: number = 0.0;
+      if (medicamentoSeleccionado)
+      {
+        precioMedicamento = medicamentoSeleccionado.precioVenta;
+      }
+
+      // Establecer el costo del tratamiento como el precio del medicamento más 400.0 (equivalente al valor de la consulta)
+      const costoTratamiento = precioMedicamento + 400.0;
+
       const tratamiento: Tratamiento = {
         id: 0,
         nombre: this.datosForm.get('nombreTratamiento')!.value,
         descripcion: this.datosForm.get('descripcion')!.value,
         fechaInicio: this.datosForm.get('fechaInicio')!.value,
         fechaFin: this.datosForm.get('fechaFin')!.value,
-        costo: 5453.23,
+        costo: costoTratamiento,
         frecuencia: this.datosForm.get('frecuencia')!.value,
         idMascota: this.mascotaId,
         idVeterinario: this.veterinarioId,
         idMedicamento: this.datosForm.get('medicamento')!.value
       }
 
-      this.tratamientoService.createTratamiento(tratamiento, this.mascotaId, this.datosForm.get('medicamento')!.value, this.veterinarioId).subscribe(response => {
+      this.tratamientoService.createTratamiento(tratamiento, this.mascotaId, this.datosForm.get('medicamento')!.value, this.veterinarioId).subscribe(response =>
+      {
         alert("Tratamiento generado exitosamente.");
         console.log('Tratamiento generado exitosamente.', response);
         this.router.navigate([`/login-administrativo/dashboard-veterinarios/${this.veterinarioId}`]);
