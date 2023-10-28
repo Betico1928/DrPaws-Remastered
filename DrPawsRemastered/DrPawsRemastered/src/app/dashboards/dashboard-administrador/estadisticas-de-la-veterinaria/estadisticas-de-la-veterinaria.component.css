@@ -62,17 +62,6 @@ header ul li a:hover,
 
 /* Fin de menu*/
 
-#myChart {
-  max-width: 500px; /* Puedes ajustar este valor según tus necesidades */
-  margin: auto;
-  display: block;
-}
-
-
-
-
-
-
 
 
 
@@ -130,7 +119,7 @@ body {
 
 /* Estilo para el gráfico */
 #myChart {
-  max-width: 800px; /* Ajustado a 800px para que sea un poco más grande */
+  max-width: 1500px; /* Ajustado a 800px para que sea un poco más grande */
   margin: auto;
   display: block;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);

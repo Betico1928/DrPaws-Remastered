@@ -77,7 +77,7 @@ export class EstadisticasDeLaVeterinariaComponent implements OnInit
   crearPieDiagram() {
     const ctx = document.getElementById('myChart') as HTMLCanvasElement;
     const myChart = new Chart(ctx, {
-      type: 'polarArea',
+      type: 'bar',
       data: {
         labels: this.medicamentosUltimoMes.map((item: any) => item[0]),
         datasets: [{
