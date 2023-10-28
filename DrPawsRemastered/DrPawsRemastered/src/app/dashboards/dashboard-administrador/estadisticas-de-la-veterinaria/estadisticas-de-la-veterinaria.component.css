@@ -119,7 +119,7 @@ body {
 
 /* Estilo para el gráfico */
 #myChart {
-  max-width: 1500px; /* Ajustado a 800px para que sea un poco más grande */
+  width: 1500px; /* Ajustado a 800px para que sea un poco más grande */
   margin: auto;
   display: block;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
