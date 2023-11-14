@@ -333,7 +333,7 @@ section img#stars {
   width: 80%;
   position: relative;
   transform-style: preserve-3d;
-  height: 300px; /* Añadido para definir una altura para el carrusel */
+  height: 300px;
 }
 
 .carrusel-contenido {
@@ -344,21 +344,24 @@ section img#stars {
   transition: transform 0.5s;
 }
 
+
 .carrusel-diapositiva {
   position: absolute;
   top: 0;
-  left: 25%; /* Centrar el contenido translúcido al 50% del ancho */
-  width: 50%; /* Hacer que el contenido translúcido ocupe solo el 50% del ancho */
+  left: 0; /* Cambiado de 25% a 0 */
+  width: 100%; /* Cambiado de 50% a 100% */
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   backface-visibility: hidden;
-  transform: rotateY(0deg) translateZ(-300px);
-  background-color: rgba(255, 255, 255, 0.5); /* Fondo translúcido blanco */
-  border-radius: 15px; /* Bordes redondeados */
+  /* Elimina la siguiente línea para evitar conflictos con TypeScript */
+  /* transform: rotateY(0deg) translateZ(-300px); */
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
 }
+
 
 .carrusel-diapositiva h2 {
   color: #ff0000ce;
