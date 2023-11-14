@@ -58,5 +58,4 @@ export class MascotaService
   getTratamientosByMascotaId(id: number): Observable<Tratamiento[]> {
     return this.http.get<Tratamiento[]>(`${this.apiUrl}/tratamientos/${id}`);
   }
-
 }

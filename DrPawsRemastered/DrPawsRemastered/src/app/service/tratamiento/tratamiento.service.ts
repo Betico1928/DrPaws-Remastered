@@ -23,4 +23,10 @@ export class TratamientoService
     return this.http.post(`${this.apiUrl}/add`, tratamiento, { params: params });
   }
 
+  // Borrar tratamiento:
+  deleteTratamiento(id: number): Observable<any>
+  {
+    return this.http.delete(`${this.apiUrl}/delete/${id}`);
+  }
+
 }
