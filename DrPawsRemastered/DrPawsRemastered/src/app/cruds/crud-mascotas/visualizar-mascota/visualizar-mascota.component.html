@@ -75,10 +75,14 @@
       <p><strong>Fecha de fin:</strong> {{ tratamiento.fechaFin | date:'dd/MM/yyyy' }}</p>
       <p><strong>Costo:</strong> ${{ tratamiento.costo }}</p>
       <p><strong>Frecuencia:</strong> {{ tratamiento.frecuencia }}</p>
+      <!--- Habilitar botón solo si es un veterinario -->
       <!-- Botón de eliminación -->
-      <button (click)="eliminarTratamiento(tratamiento)" class="btn-eliminar">
-        <i class="fa fa-trash"></i> <!-- o simplemente 'X' si no usas iconos -->
-      </button>
+      <ng-container *ngIf="tipoUsuario === 'VETERINARIO'">
+        <button (click)="eliminarTratamiento(tratamiento)" class="btn-eliminar">
+          <i class="fa fa-trash"></i> <!-- o simplemente 'X' si no usas iconos -->
+        </button>
+      </ng-container>
+
     </div>
   </div>
 </section>

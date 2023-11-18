@@ -13,7 +13,7 @@ import { VisualizarMascotaComponent } from './cruds/crud-mascotas/visualizar-mas
 import { PorqueNosotrosComponent } from './paginas-adicionales/porque-nosotros/porque-nosotros.component';
 import { ContactoComponent } from './paginas-adicionales/contacto/contacto.component';
 import { ErrorPageComponent } from './paginas-adicionales/error-page/error-page.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { DashboardUsuarioComponent } from './dashboards/dashboard-usuario/dashboard-usuario.component';
 import { LoginUsuarioComponent } from './logins/login-usuario/login-usuario.component';
 import { DashboardAdministradorComponent } from './dashboards/dashboard-administrador/dashboard-administrador.component';
@@ -24,6 +24,7 @@ import { AsignarTratamientoComponent } from './tratamientos/asignar-tratamiento/
 import { EstadisticasDeLaVeterinariaComponent } from './dashboards/dashboard-administrador/estadisticas-de-la-veterinaria/estadisticas-de-la-veterinaria.component';
 import { CrearUsuarioComponent } from './cruds/crud-usuario/crear-usuario/crear-usuario.component';
 import { HeaderComponent } from './header-footer/header/header.component';
+import { AuthInterceptor } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,11 @@ import { HeaderComponent } from './header-footer/header/header.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,useClass: AuthInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

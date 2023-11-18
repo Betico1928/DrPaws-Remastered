@@ -4,6 +4,8 @@ import {Mascota} from "../../../model/mascota";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Tratamiento} from "../../../model/tratamiento";
 import {TratamientoService} from "../../../service/tratamiento/tratamiento.service";
+import { UsuarioService } from 'src/app/service/usuario/usuario.service';
+import { UsuDto } from 'src/app/model/dto/UsuDTO';
 
 @Component({
   selector: 'app-visualizar-mascota',
@@ -12,6 +14,14 @@ import {TratamientoService} from "../../../service/tratamiento/tratamiento.servi
 })
 export class VisualizarMascotaComponent implements OnInit
 {
+
+
+  // DTOs
+  usu!: UsuDto;
+
+  // Tipo de usuario
+  tipoUsuario!: String;
+
   searchedMascota?: Mascota;
   id!: number;
   tratamientos: Tratamiento[] = [];
@@ -19,14 +29,40 @@ export class VisualizarMascotaComponent implements OnInit
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private mascotaService: MascotaService,
     private tratamientoService: TratamientoService
   ) {}
 
   ngOnInit(): void {
-    this.id = +this.route.snapshot.paramMap.get('id')!;
+
+    const currentUrl = this.router.url;
+    // Imprimir la URL
+    console.log('Current URL: ', currentUrl);
+
+    // Se obtiene el ID
+    this.route.params.subscribe(
+      params =>{
+        this.id =  params['id'];
+      }
+    )
+    // Verificar el tipo de usuario
+    this.identificarUsuario(currentUrl)
+
+    // Cargar mascotas
     this.loadMascota();
+
+    // Cargar los tratamientos
     this.loadTratamientos();
+
+  }
+
+  private identificarUsuario(currentUrl: string){
+    if(currentUrl.startsWith('/usuario')){
+      this.tipoUsuario = "Usuario";
+    }else{
+      this.tipoUsuario = "Veterinario";
+    }
   }
 
   private loadMascota(): void {

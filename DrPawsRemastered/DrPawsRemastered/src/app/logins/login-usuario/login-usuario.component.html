@@ -25,8 +25,8 @@
   <h2>Iniciar sesión Usuario</h2>
   <form (submit)="onLogin()">
     <div class="form-group">
-      <label for="userId">ID de Usuario:</label>
-      <input type="text" id="userId" name="userId" [(ngModel)]="userId" required>
+      <label for="correo">ID de Usuario:</label>
+      <input type="text" id="correo" name="correo" [(ngModel)]="formUser.correo" required>
     </div>
     <button type="submit" id="botonIngresar">Ingresar</button>
   </form>

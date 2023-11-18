@@ -68,7 +68,7 @@
         <td>{{ mascota.edad }}</td>
         <td>{{ mascota.peso }}</td>
         <td>
-          <a [routerLink]="['/visualizar-mascota', mascota.id]" class="view-pet-btn">Ver Mascota</a>
+          <a (click)="verMascota(mascota.id!)" class="view-pet-btn">Ver Mascota</a>
         </td>
       </tr>
       </tbody>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {LoginUsuarioService} from "../../service/logins/login-usuario/login-usuario.service";
 import {Router} from "@angular/router";
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-login-usuario',
@@ -11,20 +12,23 @@ export class LoginUsuarioComponent {
   userId!: string;
   errorMessage!: string;
 
+  formUser: User =  {
+    correo: '',
+    password: ''
+  }
+
   constructor(
     private autenticacionService: LoginUsuarioService,
     private router: Router
   ) {}
 
   onLogin(): void {
-    this.autenticacionService.autenticarUser(this.userId).subscribe(
-        response => {
-          if (response.id) {
-            this.router.navigate([`/login-usuario/dashboard-usuario/${response.id}`]);
-          }
-        },
-        error => {
-          this.errorMessage = "Credenciales Incorrectas";
+    console.log(this.formUser)
+    this.autenticacionService.autenticarUser(this.formUser).subscribe(
+        (data)=>{
+          // Se guarda el token
+          localStorage.setItem('token', String(data))
+          this.router.navigate(['usuario/dashboard-usuario']);
         }
       );
   }

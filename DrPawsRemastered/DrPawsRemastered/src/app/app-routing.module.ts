@@ -30,7 +30,10 @@ const routes: Routes = [
 
   // Usuarios:
   {path: 'login-usuario', component: LoginUsuarioComponent},
-  {path: 'login-usuario/dashboard-usuario/:id', component: DashboardUsuarioComponent},
+  // Nuevo path para el dashboard del usuario
+  {path: 'usuario/dashboard-usuario', component:DashboardUsuarioComponent},
+  // Nuevo path para ir a la mascota del usuario
+  {path: 'usuario/ver_mascota/:id',component:VisualizarMascotaComponent},
 
   // Administrativos:
   {path: 'login-administrativo', component: LoginAdministrativoComponent},
