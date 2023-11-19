@@ -77,7 +77,7 @@
       <p><strong>Frecuencia:</strong> {{ tratamiento.frecuencia }}</p>
       <!--- Habilitar botón solo si es un veterinario -->
       <!-- Botón de eliminación -->
-      <ng-container *ngIf="tipoUsuario === 'VETERINARIO'">
+      <ng-container *ngIf="tipoUsuario === 'Administrativo'">
         <button (click)="eliminarTratamiento(tratamiento)" class="btn-eliminar">
           <i class="fa fa-trash"></i> <!-- o simplemente 'X' si no usas iconos -->
         </button>
@@ -110,7 +110,7 @@
 
     <div class="footer-contact">
       <p>Teléfono: (123) 456-7890</p>
-      <p>Email: woof-woof@veterinariadrpaws.com</p>
+      <p>Email: woof-woof&#64;veterinariadrpaws.com</p>
     </div>
   </div>
   <div class="footer-bar">

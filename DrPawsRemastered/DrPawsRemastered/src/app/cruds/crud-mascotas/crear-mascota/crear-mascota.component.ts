@@ -13,7 +13,6 @@ import {Usuario} from "../../../model/usuario";
 export class CrearMascotaComponent implements OnInit
 {
   mascotaForm!: FormGroup;
-  veterinarioId!: number;
 
   // Lista de Usuarios:
   usuarios!: Usuario[];
@@ -28,8 +27,6 @@ export class CrearMascotaComponent implements OnInit
 
   ngOnInit(): void
   {
-    // Obtener ID desde la ruta
-    this.veterinarioId = +this.route.snapshot.paramMap.get('idVeterinario')!;
 
     // Extraer a todos los dueños de mascotas para ponerlos en la lista desplegable:
     this.usuarioService.getAllUsuarios().subscribe(usuariosEntrantes => {
@@ -74,7 +71,8 @@ export class CrearMascotaComponent implements OnInit
       this.mascotaService.createMascota(this.mascotaForm.value).subscribe(
         data => {
           alert('Mascota creada exitosamente!');
-          this.router.navigate([`/login-administrativo/dashboard-veterinarios/${this.veterinarioId}`]);
+          this.router.navigate([`administrativo/dashboard-veterinaria`]);
+
         },
         error => {
           alert('Ocurrió un error al crear la mascota.');

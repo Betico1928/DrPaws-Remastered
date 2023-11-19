@@ -43,7 +43,7 @@ export class CrearUsuarioComponent
       this.usuarioService.createUsuario(this.usuarioForm.value).subscribe(
         response => {
           alert('Dueño creado exitosamente!');
-          this.router.navigate([`/login-administrativo/dashboard-veterinarios/${this.veterinarioId}`]);
+          this.router.navigate([`administrativo/dashboard-veterinaria`]);
         },
         error => {
           alert("Error creando usuario: " + error);

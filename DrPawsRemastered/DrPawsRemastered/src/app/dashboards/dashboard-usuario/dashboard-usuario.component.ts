@@ -41,6 +41,7 @@ export class DashboardUsuarioComponent implements OnInit {
           mergeMap(
             (data) => {
               this.usuario = data;
+              // Se obtienen las mascotas del usuario
               return this.usuarioService.getMascotasByUsuarioId(this.usuario?.id);
             }
           )

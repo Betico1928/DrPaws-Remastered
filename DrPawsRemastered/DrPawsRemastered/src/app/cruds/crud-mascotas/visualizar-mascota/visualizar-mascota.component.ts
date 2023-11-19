@@ -61,7 +61,7 @@ export class VisualizarMascotaComponent implements OnInit
     if(currentUrl.startsWith('/usuario')){
       this.tipoUsuario = "Usuario";
     }else{
-      this.tipoUsuario = "Veterinario";
+      this.tipoUsuario = "Administrativo";
     }
   }
 

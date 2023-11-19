@@ -1,3 +1,4 @@
+
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MascotaService} from "../../../service/mascota/mascota-service.service";
@@ -26,9 +27,8 @@ export class ModificarMascotaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Obtener ID desde la ruta
-    this.veterinarioId = +this.route.snapshot.paramMap.get('idVeterinario')!;
-    this.mascotaId = +this.route.snapshot.paramMap.get('idMascota')!;
+    // Obtener ID de la mascota
+    this.mascotaId = +this.route.snapshot.paramMap.get('id')!;
 
     // Crear el formulario
     this.mascotaForm = this.fb.group({
@@ -54,7 +54,7 @@ export class ModificarMascotaComponent implements OnInit {
       // Llama al método para actualizar la mascota
       this.mascotaService.updateMascota(this.mascotaId, mascota).subscribe(response => {
         alert('Mascota actualizada exitosamente!');
-          this.router.navigate([`/login-administrativo/dashboard-veterinarios/${this.veterinarioId}`]);
+          this.router.navigate([`administrativo/dashboard-veterinaria`]);
         },
         error => {
           alert('Ocurrió un error al actualizar la mascota.');

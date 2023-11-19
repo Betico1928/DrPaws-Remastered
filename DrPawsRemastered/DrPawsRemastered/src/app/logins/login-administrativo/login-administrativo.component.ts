@@ -1,7 +1,8 @@
+import { AuthService } from './../../service/auth/auth.service';
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
-import {LoginVeterinarioService} from "../../service/logins/login-veterinario/login-veterinario.service";
-import {CredencialesDTO} from "../../model/dto/credenciales-dto";
+import { User } from 'src/app/model/user';
+import { LoginAdministrativoService } from 'src/app/service/logins/login-administrativo/login-administrativo.service';
 
 @Component({
   selector: 'app-login-administrativo',
@@ -10,34 +11,37 @@ import {CredencialesDTO} from "../../model/dto/credenciales-dto";
 })
 export class LoginAdministrativoComponent
 {
-  credenciales: CredencialesDTO = {
+  formUser: User = {
     correo: '',
-    contrasenna: ''
+    password: ''
   };
 
   mostrarError: boolean = false;
 
   constructor(
-    private autenticacionService: LoginVeterinarioService,
-    private router: Router
+    private autenticacionService: LoginAdministrativoService,
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   login(): void {
     this.mostrarError = false; // Asegurándonos de que el error no se muestra antes de intentar autenticar
 
-    if (this.credenciales.correo === 'admin@drpaws.com' && this.credenciales.contrasenna === '123') {
-      this.router.navigate(['/login-administrativo/dashboard-administrador']);
-      return; // Terminamos la ejecución del método para que no intente autenticarse con el servicio
-    }
+    console.log(this.formUser);
+
+    // Autenticar un usuario veterinario o administrador
+    this.autenticacionService.autenticarAdministrativo(this.formUser).subscribe(
+      (data)=>{
+        // Se guarda el token
+        localStorage.setItem('token', String(data));
+        // Identificar el tipo de usuario
+        const userRoles = this.authService.getUserRolesFromToken(String(data));
 
 
-    this.autenticacionService.autenticarVeterinario(this.credenciales).subscribe(
-      data => {
-        console.log('Autenticación exitosa!', data);
-
-        this.router.navigate([`/login-administrativo/dashboard-veterinarios/${data.id}`]);
+        // Redirigir al usuario a la página correspondiente
+        this.redirigirPagina(userRoles);
       },
-      error => {
+      (error) => {
         console.log('Error en autenticación', error);
         this.mostrarError = true; // Mostramos el error cuando falla la autenticación
 
@@ -46,6 +50,16 @@ export class LoginAdministrativoComponent
           this.mostrarError = false;
         }, 6000); // Por ejemplo, aquí se oculta después de 6 segundos
       }
-    );
+    )
+  }
+
+  private redirigirPagina(userRole: string[]){
+    console.log(userRole)
+    if(userRole.includes("VETERINARIO")){
+      this.router.navigate(['administrativo/dashboard-veterinaria']);
+    }
+    if(userRole.includes("ADMINISTRADOR")){
+      this.router.navigate(['administrativo/dashboard-veterinaria']);
+    }
   }
 }
