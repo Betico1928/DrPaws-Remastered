@@ -21,98 +21,110 @@
 
 <body>
 
-<!-- Header -->
-<app-header></app-header>
-<!-- Fin del Header -->
+  <!-- Header -->
+  <app-header></app-header>
+  <!-- Fin del Header -->
 
-<div class="table-container">
-  <p class="titulo">
-    Veterinarios de la veterinaria Dr. Paws
-  </p>
+  <div class="table-container">
+    <p class="titulo">
+      Veterinarios de la veterinaria Dr. Paws
+    </p>
 
-  <table class="table table-success table-striped center">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Especialidad</th>
-      <th scope="col">Activo</th>
-      <th scope="col">Estado</th>
-      <th scope="col">Acciones</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Angular loop to iterate over veterinarios -->
-    <tr *ngFor="let veterinario of veterinarios; let i = index">
-      <td>{{ i + 1 }}</td>
-      <td>{{ veterinario.nombre }}</td>
-      <td>{{ veterinario.especialidad }}</td>
-      <td>{{ veterinario.activo ? 'Sí' : 'No' }}</td>
-      <td>
-        <label class="switch">
-          <input type="checkbox" [(ngModel)]="veterinario.activo" (change)="onChangeActive(veterinario)">
-          <span class="slider round" [ngClass]="{'on': veterinario.activo}"></span>
-        </label>
-      </td>
-      <td>
-        <div class="btn-group">
-          <!-- Buttons for actions -->
-          <a class="btn btn-primary" [routerLink]="['/visualizar-veterinario', veterinario.id]">
-            <i class="fas fa-eye"></i>
-          </a>
-          <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-administrador/modificar-veterinario', veterinario.id]">
-            <i class="fas fa-pencil-alt"></i>
-          </a>
-          <a class="btn btn-danger" (click)="deleteVeterinario(veterinario.id)">
-            <i class="fas fa-trash"></i>
-          </a>
-        </div>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <div class="btn-container">
-    <a class="btn btn-info" routerLink="/login-administrativo/dashboard-administrador/crear-veterinario">
-      <i class="fas fa-plus"></i>
+    <table class="table table-success table-striped center">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Especialidad</th>
+          <th scope="col">Activo</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Angular loop to iterate over veterinarios -->
+        <tr *ngFor="let veterinario of veterinarios; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ veterinario.nombre }}</td>
+          <td>{{ veterinario.especialidad }}</td>
+          <td>{{ veterinario.activo ? 'Sí' : 'No' }}</td>
+          <td>
+            <label class="switch">
+              <input type="checkbox" [(ngModel)]="veterinario.activo" (change)="onChangeActive(veterinario)">
+              <span class="slider round" [ngClass]="{'on': veterinario.activo}"></span>
+            </label>
+          </td>
+          <td>
+            <div class="btn-group">
+              <!-- Buttons for actions -->
+              <a class="btn btn-primary" [routerLink]="['/visualizar-veterinario', veterinario.id]">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a class="btn btn-info"
+                [routerLink]="['/login-administrativo/dashboard-administrador/modificar-veterinario', veterinario.id]">
+                <i class="fas fa-pencil-alt"></i>
+              </a>
+              <a class="btn btn-danger" (click)="deleteVeterinario(veterinario.id)">
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="btn-container">
+      <a class="btn btn-info" routerLink="/login-administrativo/dashboard-administrador/crear-veterinario">
+        <i class="fas fa-plus"></i>
+      </a>
+    </div>
+  </div>
+  <div class="statistics-btn-container">
+    <a class="btn-statistics"
+      [routerLink]="['/login-administrativo/dashboard-administrador/estadisticas-de-la-veterinaria']">
+      <i class="fas fa-chart-bar"></i> <!-- Este es el ícono de estadísticas -->
+      <span>Estadísticas</span>
     </a>
-  </div>
-</div>
-<div class="statistics-btn-container">
-  <a class="btn-statistics" [routerLink]="['/login-administrativo/dashboard-administrador/estadisticas-de-la-veterinaria']">
-    <i class="fas fa-chart-bar"></i> <!-- Este es el ícono de estadísticas -->
-    <span>Estadísticas</span>
-  </a>
-</div>
 
-
-
-
-<!-- Footer -->    <!-- Footer-->
-<footer class="vet-footer">
-  <div class="footer-content">
-    <div class="social-media">
-      <a href="#" class="social-icon"><i class="fab fa-twitter" style="color: #0099DD;"></i></a>
-      <a href="#" class="social-icon"><i class="fab fa-youtube" style="color: #fa2828;"></i></a>
-      <a href="#" class="social-icon"><i class="fab fa-instagram" style="color: #FF9944;"></i></a>
-    </div>
-
-    <div class="footer-links">
-      <a href="#">Inicio</a>
-      <a href="#">Servicios</a>
-      <a href="/contacto">Contacto</a>
-      <a href="/porqueNosotros">Acerca de</a>
-      <a href="/porqueNosotros/testimonios">Testimonios</a>
-    </div>
-
-    <div class="footer-contact">
-      <p>Teléfono: (123) 456-7890</p>
-      <p>Email: woof-woof@veterinariadrpaws.com</p>
+    <div class="logout-btn-container">
+      <button class="btn-logout" (click)="endSession()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Cerrar Sesión</span>
+      </button>
     </div>
   </div>
-  <div class="footer-bar">
-    <p>&copy; 2023 Veterinaria Dr. Paws - Todos los derechos reservados.</p>
-  </div>
-</footer>
-<!-- Fin del Footer-->
+
+
+
+
+
+
+  <!-- Footer --> <!-- Footer-->
+  <footer class="vet-footer">
+    <div class="footer-content">
+      <div class="social-media">
+        <a href="#" class="social-icon"><i class="fab fa-twitter" style="color: #0099DD;"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube" style="color: #fa2828;"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram" style="color: #FF9944;"></i></a>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">Inicio</a>
+        <a href="#">Servicios</a>
+        <a href="/contacto">Contacto</a>
+        <a href="/porqueNosotros">Acerca de</a>
+        <a href="/porqueNosotros/testimonios">Testimonios</a>
+      </div>
+
+      <div class="footer-contact">
+        <p>Teléfono: (123) 456-7890</p>
+        <p>Email: woof-woof&#64;veterinariadrpaws.com</p>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <p>&copy; 2023 Veterinaria Dr. Paws - Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <!-- Fin del Footer-->
 </body>
+
 </html>
