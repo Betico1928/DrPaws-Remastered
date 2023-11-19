@@ -34,7 +34,6 @@
 }
 
 
-
 .table-container
 {
   flex-direction: column;
@@ -74,6 +73,13 @@
 }
 
 /* Estilos para los botones dentro de la tabla */
+
+.container{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .btn {
   padding: 10px 7px;
   border-radius: 5px;

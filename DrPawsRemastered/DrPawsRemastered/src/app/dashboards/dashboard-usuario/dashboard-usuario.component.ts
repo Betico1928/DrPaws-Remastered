@@ -54,6 +54,11 @@ export class DashboardUsuarioComponent implements OnInit {
     )
   }
 
+  // Salir de la cuenta
+  salirCuenta(): void{
+    localStorage.removeItem("token");
+    this.router.navigate(['/home']);
+  }
   // Redirigir a ver mascotas
   verMascota(mascotaId : number){
     this.router.navigate(['/usuario/ver_mascota/'+mascotaId]);

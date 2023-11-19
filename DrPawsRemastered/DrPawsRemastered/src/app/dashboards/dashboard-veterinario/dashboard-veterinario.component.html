@@ -55,16 +55,28 @@
       Mascotas de la veterinaria Dr. Paws
     </p>
 
-    <div class="btn-container">
-      <a class="btn btn-info" id="AgregarMascota" (click)="agregarMascota()">
-        <i class="fas fa-plus">   Agregar mascota</i>
-      </a>
-    </div>
+    <div class="container">
+      <div class="btn-container">
+        <a class="btn btn-info" id="AgregarMascota" (click)="agregarMascota()">
+          <i class="fas fa-plus">   Agregar mascota</i>
+        </a>
+      </div>
 
-    <div class="btn-container">
-      <a class="btn btn-info" id="AgregarUsuario" (click)="agregarUsuario()">
-        <i class="fas fa-plus">   Agregar Usuario</i>
-      </a>
+      <div class="btn-container">
+        <a class="btn btn-info" id="AgregarUsuario" (click)="agregarUsuario()">
+          <i class="fas fa-plus">   Agregar Usuario</i>
+        </a>
+      </div>
+
+      <ng-container *ngIf="userRoles.includes('VETERINARIO')" >
+        <div class="btn-container">
+          <a class="btn btn-info" id="salirCuenta" (click)="salirCuenta()">
+            <i class="fas fa-sign-out-alt">  Salir de la cuenta</i>
+          </a>
+        </div>
+      </ng-container>
+
+
     </div>
 
   </div>

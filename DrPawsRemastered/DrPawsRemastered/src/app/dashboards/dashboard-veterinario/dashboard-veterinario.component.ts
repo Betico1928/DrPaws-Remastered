@@ -64,6 +64,11 @@ export class DashboardVeterinarioComponent implements OnInit {
     this.getMascotas();
   }
 
+  // Salir de la cuenta
+  salirCuenta():void{
+    localStorage.removeItem("token");
+    this.router.navigate(['/home']);
+  }
   // Obtener las mascotas:
   getMascotas(): void {
     this.mascotaService.getMascotas().subscribe(mascotas => this.listaDeMascotas = mascotas);

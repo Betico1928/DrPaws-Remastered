@@ -30,8 +30,15 @@
   <!-- Sección de información del usuario -->
   <!-- Sección de información del usuario -->
   <div class="user-info" *ngIf="usuario">
-    <div class="user-pic">
-      <img [src]="'/assets/dashboard-usuario/images/alejandro-sanz.png'" alt="Imagen de usuario">
+    <div class="wrapper">
+      <div class="image">
+        <div class="user-pic"(click)="salirCuenta()">
+          <img [src]="'/assets/dashboard-usuario/images/alejandro-sanz.png'" alt="Imagen de usuario">
+          <div class="content">
+            <h1>Salir de cuenta</h1>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="user-details">
       <div class="detail">

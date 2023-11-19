@@ -26,12 +26,12 @@ const routes: Routes = [
 
   // Eagerly loaded routes
   { path: 'home', component: LandingPageComponent, canActivate:[RoleGuard] },
-  { path: 'porque-nosotros', component: PorqueNosotrosComponent },
+  { path: 'porque-nosotros', component: PorqueNosotrosComponent  },
   { path: 'contacto', component: ContactoComponent },
 
   // Login para los usuarios
-  { path: 'login-usuario', component: LoginUsuarioComponent },
-  { path: 'login-administrativo', component: LoginAdministrativoComponent },
+  { path: 'login-usuario', component: LoginUsuarioComponent, canActivate:[RoleGuard] },
+  { path: 'login-administrativo', component: LoginAdministrativoComponent,canActivate:[RoleGuard] },
 
   // Usuarios:
 
@@ -81,8 +81,6 @@ const routes: Routes = [
   { path: 'visualizar-veterinario/:id', component: VisualizarVeterinarioComponent },
   { path: 'login-administrativo/dashboard-administrador/modificar-veterinario/:id', component: ModificarVeterinarioComponent },
 
-  // CRUD Usuarios:
-  { path: 'login-administrativo/dashboard-veterinarios/crear-usuario/:idVeterinario', component: CrearUsuarioComponent },
 
 
   // Error:

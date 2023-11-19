@@ -59,7 +59,7 @@ export class LoginAdministrativoComponent
       this.router.navigate(['administrativo/dashboard-veterinaria']);
     }
     if(userRole.includes("ADMINISTRADOR")){
-      this.router.navigate(['administrativo/dashboard-veterinaria']);
+      this.router.navigate(['administrador/dashboard-administrador']);
     }
   }
 }
