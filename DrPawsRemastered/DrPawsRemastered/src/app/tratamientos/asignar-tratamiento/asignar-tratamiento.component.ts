@@ -125,7 +125,7 @@ export class AsignarTratamientoComponent implements OnInit
       {
         alert("Tratamiento generado exitosamente.");
         console.log('Tratamiento generado exitosamente.', response);
-        this.router.navigate([`/login-administrativo/dashboard-veterinarios/${this.veterinarioId}`]);
+        this.router.navigate([`administrativo/dashboard-veterinaria`]);
       }, error => {
         // Maneja los errores que puedan surgir
         console.error('Error al generado el tratamiento: ', error);

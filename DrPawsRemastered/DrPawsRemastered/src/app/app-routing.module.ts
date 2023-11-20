@@ -26,8 +26,8 @@ const routes: Routes = [
 
   // Eagerly loaded routes
   { path: 'home', component: LandingPageComponent, canActivate:[RoleGuard] },
-  { path: 'porque-nosotros', component: PorqueNosotrosComponent  },
-  { path: 'contacto', component: ContactoComponent },
+  { path: 'porque-nosotros', component: PorqueNosotrosComponent, canActivate:[RoleGuard]  },
+  { path: 'contacto', component: ContactoComponent, canActivate:[RoleGuard] },
 
   // Login para los usuarios
   { path: 'login-usuario', component: LoginUsuarioComponent, canActivate:[RoleGuard] },
@@ -64,23 +64,20 @@ const routes: Routes = [
   // Nuevo path para asignar tratamiento
 
   // Tratamientos:
-  { path: 'login-administrativo/dashboard-veterinarios/asignar-tratamiento/:idVeterinario/:idMascota', component: AsignarTratamientoComponent },
+  { path: 'asignar-tratamiento/:idVeterinario/:idMascota', component: AsignarTratamientoComponent },
 
+  // Nuevo path para pagina de estadisticas:
+  {path: 'administrativo/estadisticas-veterinaria',component: EstadisticasDeLaVeterinariaComponent},
 
+  // Nuevo path para crear veterinario
+  {path:'administrativo/crear-veterinario',component: CrearVeterinarioComponent},
 
-
-
-
-
-
-  { path: 'administrador/dashboard-administrador/estadisticas-de-la-veterinaria', component: EstadisticasDeLaVeterinariaComponent },
+  // Nuevo path para modificar mascota
+  { path: 'administrativo/modificar-veterinario/:id', component: ModificarVeterinarioComponent },
 
 
   // CRUD Veterinarios:
-  { path: 'login-administrativo/dashboard-administrador/crear-veterinario', component: CrearVeterinarioComponent },
   { path: 'visualizar-veterinario/:id', component: VisualizarVeterinarioComponent },
-  { path: 'login-administrativo/dashboard-administrador/modificar-veterinario/:id', component: ModificarVeterinarioComponent },
-
 
 
   // Error:

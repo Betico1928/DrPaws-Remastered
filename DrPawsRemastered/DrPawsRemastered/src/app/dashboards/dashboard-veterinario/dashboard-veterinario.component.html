@@ -112,7 +112,7 @@
           <a class="btn btn-danger" (click)="deleteMascota(mascota.id)">
             <i class="fas fa-trash"></i>
           </a>
-          <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-veterinarios/asignar-tratamiento', veterinario?.id, mascota.id]">
+          <a class="btn btn-info" (click)="asignarTratamiento(mascota.id!)" >
             <i class="fas fa-syringe"></i>
           </a>
         </div>

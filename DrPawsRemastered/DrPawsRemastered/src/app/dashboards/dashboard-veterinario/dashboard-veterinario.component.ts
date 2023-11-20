@@ -56,6 +56,7 @@ export class DashboardVeterinarioComponent implements OnInit {
         },
         (error) => {
           alert("Lo sentimos, no pudimos cargar al veterinario");
+          this.salirCuenta();
         }
       )
     }
@@ -96,6 +97,16 @@ export class DashboardVeterinarioComponent implements OnInit {
   agregarUsuario():void{
     // Redirige a la pagina para crear usuarios
     this.router.navigate(['/administrativo/crear-usuario']);
+  }
+
+  // Asignar tratamiento a mascota
+  asignarTratamiento(mascotaId: number){
+    if(this.userRoles.includes("VETERINARIO")){
+      this.router.navigate(['asignar-tratamiento/'+this.veterinario?.id+'/'+mascotaId])
+    }else{
+      this.router.navigate(['asignar-tratamiento/'+1+'/'+mascotaId])
+    }
+
   }
 
   // Borrar mascota:

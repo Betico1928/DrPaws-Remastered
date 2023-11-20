@@ -34,5 +34,8 @@ export class RedirectionService {
     if(userRoles.includes("VETERINARIO")){
       this.router.navigate(['administrativo/dashboard-veterinaria']);
     }
+    if(userRoles.includes("ADMINISTRADOR")){
+      this.router.navigate(['administrador/dashboard-administrador']);
+    }
   }
 }

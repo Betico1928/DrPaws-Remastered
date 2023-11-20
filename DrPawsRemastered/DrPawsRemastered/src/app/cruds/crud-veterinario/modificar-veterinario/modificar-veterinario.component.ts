@@ -51,7 +51,7 @@ export class ModificarVeterinarioComponent implements OnInit
       this.veterinarioService.updateVeterinario(idDelVeterinario, this.veterinarioForm.value).subscribe(
         () => {
           alert('Veterinario actualizado exitosamente!')
-          this.router.navigate(['login-administrativo/dashboard-administrador']);
+          this.router.navigate(['administrador/dashboard-administrador']);
         },
         error => console.error(error)
       );

@@ -43,11 +43,15 @@ export class DashboardUsuarioComponent implements OnInit {
               this.usuario = data;
               // Se obtienen las mascotas del usuario
               return this.usuarioService.getMascotasByUsuarioId(this.usuario?.id);
-            }
+            },
           )
         ).subscribe(
           (data) => {
             this.mascotas = data;
+          },
+          (error) =>{
+            alert("Lo sentimos, no pudimos cargar al usuario");
+            this.salirCuenta();
           }
         )
       }

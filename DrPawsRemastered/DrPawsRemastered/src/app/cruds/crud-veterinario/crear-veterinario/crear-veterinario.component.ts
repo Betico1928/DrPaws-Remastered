@@ -33,7 +33,7 @@ export class CrearVeterinarioComponent {
       this.veterinarioService.createVeterinario(this.veterinarioForm.value).subscribe(
         response => {
           alert('Veterinario creado!');
-          this.router.navigate(['login-administrativo/dashboard-administrador']);
+          this.router.navigate(['administrador/dashboard-administrador']);
         },
         error => {
           alert("Error creando veterinario: " + error);

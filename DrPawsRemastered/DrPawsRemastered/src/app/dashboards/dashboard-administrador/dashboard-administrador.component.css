@@ -218,7 +218,9 @@ input:checked + .slider:before {
 }
 .statistics-btn-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap:30px;
   align-items: center;
   margin: 30px 0; /* Más espacio arriba y abajo del botón */
 }

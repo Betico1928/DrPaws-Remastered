@@ -26,9 +26,18 @@
 <!-- Fin del Header -->
 
 <div class="table-container">
-  <p class="titulo">
-    Veterinarios de la veterinaria Dr. Paws
-  </p>
+
+  <div class="headerTable-container">
+    <p class="titulo">
+      Veterinarios de la veterinaria Dr. Paws
+    </p>
+
+    <div class="btn-container">
+      <a class="btn btn-info" id="salirCuenta" (click)="salirCuenta()">
+        <i class="fas fa-sign-out-alt">  Salir de la cuenta</i>
+      </a>
+    </div>
+  </div>
 
   <table class="table table-success table-striped center">
     <thead>
@@ -60,7 +69,7 @@
           <a class="btn btn-primary" [routerLink]="['/visualizar-veterinario', veterinario.id]">
             <i class="fas fa-eye"></i>
           </a>
-          <a class="btn btn-info" [routerLink]="['/login-administrativo/dashboard-administrador/modificar-veterinario', veterinario.id]">
+          <a class="btn btn-info" (click)="modificarVeterinario(veterinario.id)" >
             <i class="fas fa-pencil-alt"></i>
           </a>
           <a class="btn btn-danger" (click)="deleteVeterinario(veterinario.id)">
@@ -72,15 +81,19 @@
     </tbody>
   </table>
   <div class="btn-container">
-    <a class="btn btn-info" routerLink="/login-administrativo/dashboard-administrador/crear-veterinario">
+    <a class="btn btn-info" (click)="crearVeterinario()">
       <i class="fas fa-plus"></i>
     </a>
   </div>
 </div>
 <div class="statistics-btn-container">
-  <a class="btn-statistics" [routerLink]="['/login-administrativo/dashboard-administrador/estadisticas-de-la-veterinaria']">
+  <a class="btn-statistics" (click)="verEstadisticas()">
     <i class="fas fa-chart-bar"></i> <!-- Este es el ícono de estadísticas -->
     <span>Estadísticas</span>
+  </a>
+  <a class="btn-statistics" (click)="verVeterinaria()">
+    <i class="fas fa-dog"></i> <!-- Este es el ícono de estadísticas -->
+    <span>Ver veterinaria</span>
   </a>
 </div>
 
