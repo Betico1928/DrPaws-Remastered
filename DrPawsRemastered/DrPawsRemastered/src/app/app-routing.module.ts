@@ -25,13 +25,13 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
 
   // Eagerly loaded routes
-  { path: 'home', component: LandingPageComponent, canActivate: [RoleGuard] },
-  { path: 'porque-nosotros', component: PorqueNosotrosComponent },
+  { path: 'home', component: LandingPageComponent, canActivate:[RoleGuard] },
+  { path: 'porque-nosotros', component: PorqueNosotrosComponent  },
   { path: 'contacto', component: ContactoComponent },
 
   // Login para los usuarios
-  { path: 'login-usuario', component: LoginUsuarioComponent, canActivate: [RoleGuard] },
-  { path: 'login-administrativo', component: LoginAdministrativoComponent, canActivate: [RoleGuard] },
+  { path: 'login-usuario', component: LoginUsuarioComponent, canActivate:[RoleGuard] },
+  { path: 'login-administrativo', component: LoginAdministrativoComponent,canActivate:[RoleGuard] },
 
   // Usuarios:
 
@@ -73,7 +73,7 @@ const routes: Routes = [
 
 
 
-  { path: 'login-administrativo/dashboard-administrador/estadisticas-de-la-veterinaria', component: EstadisticasDeLaVeterinariaComponent },
+  { path: 'administrador/dashboard-administrador/estadisticas-de-la-veterinaria', component: EstadisticasDeLaVeterinariaComponent },
 
 
   // CRUD Veterinarios:
